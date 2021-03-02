@@ -1,0 +1,19 @@
+{
+  "name": "dev-at-station-app",
+  "version": "1.0.0",
+  "description": "Frontend React application for Dev-At-Station-Game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mrdanishjr1992/Dev-At-Station-App.git"
+  },
+  "author": "Mohamed Abdulah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mrdanishjr1992/Dev-At-Station-App/issues"
+  },
+  "homepage": "https://github.com/Mrdanishjr1992/Dev-At-Station-App#readme"
+}
