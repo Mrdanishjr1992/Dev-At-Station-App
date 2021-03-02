@@ -1,0 +1,23 @@
+import { Switch, Route } from 'react-router-dom';
+import React from 'react';
+import AboutPage from '../pages/AboutPage';
+import BattlePage from '../pages/BattlePage';
+import GamePage from '../pages/GamePage';
+import LandingPage from '../pages/LandingPage';
+import LoadingPage from '../pages/LoadingPage';
+import MenuPage from '../pages/MenuPage';
+
+export default function Routes() {
+	return (
+		<>
+			<Switch>
+				<Route exact path="/" component={LandingPage} />
+				<Route exact path="/about" component={AboutPage} />
+				<Route exact path="/loading" component={LoadingPage} />
+				<Route exact path="/game" component={GamePage} />
+				<Route exact path="/menu" component={MenuPage} />
+				<Route exact path="/battle" component={BattlePage} />
+			</Switch>
+		</>
+	);
+}
