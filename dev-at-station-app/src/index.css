@@ -1,13 +1,55 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+	--pixel-size: 2px;
+	--grid-cell: calc(var(--pixel-size) * 16);
+	--bg: #9fa7e4;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@media (min-width: 700px) {
+	:root {
+		--pixel-size: 3px;
+	}
+}
+@media (min-width: 1000px) {
+	:root {
+		--pixel-size: 4px;
+	}
+}
+html,
+body {
+	height: 100vh;
+}
+body {
+	font-family: 'AirbnbCerealBook', sans-serif;
+	background: var(--bg);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0.8;
+}
+.camera {
+	border: rgb(113, 11, 104) solid 10px;
+	width: 50%;
+	height: 50%;
+	overflow: hidden;
+	background: #61ddf7;
+	position: absolute;
+	top: 25%;
+	left: 25%;
+}
+.map {
+	image-rendering: pixelated;
+	background-image: url('https://assets.codepen.io/21542/CameraDemoMap.png');
+	background-size: 100%;
+	width: calc(20 * var(--grid-cell));
+	height: calc(16 * var(--grid-cell));
+	position: relative;
+	z-index: 0;
+}
+#hero {
+	position: absolute;
+	background-size: 192px 256px;
+	top: 48%;
+	left: 48%;
+	background-repeat: no-repeat;
+	image-rendering: pixelated;
+	image-rendering: crisp-edges;
 }
