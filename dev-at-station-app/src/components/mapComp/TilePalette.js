@@ -6,6 +6,7 @@ export default function TilePalette({
 	size,
 	activeTile,
 	setActiveTile,
+	setBgTile,
 }) {
 	const { width, height } = size;
 	const tiles = [];
@@ -22,7 +23,9 @@ export default function TilePalette({
 		}
 		tiles.push(row);
 	}
-
+	function fillBg() {
+		setBgTile(activeTile);
+	}
 	return (
 		<div
 			style={{
@@ -34,17 +37,33 @@ export default function TilePalette({
 				left: position.x,
 			}}
 		>
-			<div
-				id="palette"
-				style={{
-					backgroundColor: 'transparent',
-					background: `url(${tileset})`,
-					backgroundRepeat: 'no-repeat',
-					backgroundPosition: `-${activeTile.x}px -${activeTile.y}px`,
-					width: '32px',
-					height: '32px',
-				}}
-			/>
+			<div style={{ display: 'flex', backgroundColor: 'white' }}>
+				<div
+					id="handlebar"
+					style={{
+						backgroundImage: `url(./images/misc/handlebar.jpg)`,
+						backgroundSize: 'contain',
+						backgroundRepeat: 'no-repeat',
+						backgroundPosiition: 'center',
+						width: '32px',
+						height: '32px',
+					}}
+				/>
+				<div
+					id="palette"
+					style={{
+						background: `url(${tileset})`,
+						backgroundRepeat: 'no-repeat',
+						backgroundPosition: `-${activeTile.x}px -${activeTile.y}px`,
+						width: '32px',
+						height: '32px',
+					}}
+				/>
+				<button className="btn" onClick={() => fillBg()}>
+					Fill Bg
+				</button>
+			</div>
+
 			{tiles.map((row, y) => (
 				<div key={y} style={{ display: 'flex' }}>
 					{row.map((tile, x) => (

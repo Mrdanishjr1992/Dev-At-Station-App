@@ -6,7 +6,7 @@ import Map from '../components/mapComp/Map';
 export default function MenuPage() {
 	// const season = ['spring', 'fall', 'winter'];
 	const size = { width: 640, height: 288 };
-	const { position } = useDrag('palette');
+	const { position } = useDrag('handlebar');
 	const [activeTile, setActiveTile] = useState({ x: 1 * 32, y: 4 * 32 });
 	const [bgTile, setBgTile] = useState({ x: 1 * 32, y: 4 * 32 });
 	const [tiles, setTiles] = useState([]);
