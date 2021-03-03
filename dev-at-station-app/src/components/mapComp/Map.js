@@ -1,13 +1,14 @@
 import React from 'react';
 
-export default function Map({ tiles, tileset, size, setTiles, activeTile }) {
+export default function Map({ tiles, setTiles, activeTile, tileset, size }) {
 	function cloneMatrix(m) {
 		const clone = new Array(m.length);
-		for (let i = 0; i < m.length; i++) {
+		for (let i = 0; i < m.length; ++i) {
 			clone[i] = m[i].slice(0);
 		}
 		return clone;
 	}
+
 	function dropTile({ x, y }) {
 		setTiles((prev) => {
 			const clone = cloneMatrix(prev);
@@ -18,7 +19,6 @@ export default function Map({ tiles, tileset, size, setTiles, activeTile }) {
 			clone[y][x] = tile;
 			return clone;
 		});
-		return;
 	}
 	return (
 		<div
@@ -39,9 +39,10 @@ export default function Map({ tiles, tileset, size, setTiles, activeTile }) {
 								borderRight: '1px solid black',
 								background: `url(${tileset})`,
 								backgroundRepeat: 'no-repeat',
-								backgroundPosition: `-${activeTile.x}px -${activeTile.y}px`,
+								backgroundPosition: `-${tile.v.x}px -${tile.v.y}px`,
 								width: '32px',
 								height: '32px',
+								cursor: 'pointer',
 							}}
 						/>
 					))}

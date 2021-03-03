@@ -4,16 +4,16 @@ import TilePalette from '../components/mapComp/TilePalette';
 import Map from '../components/mapComp/Map';
 
 export default function MenuPage() {
-	const season = ['spring', 'fall', 'winter'];
+	// const season = ['spring', 'fall', 'winter'];
 	const size = { width: 640, height: 288 };
 	const { position } = useDrag('palette');
-	const [tileset, setTileset] = useState('../images/maps/spring.png');
 	const [activeTile, setActiveTile] = useState({ x: 1 * 32, y: 4 * 32 });
+	const [tiles, setTiles] = useState([]);
+	const [tileset, setTileset] = useState('../images/maps/spring.png');
 	const [mapSize, setMapSize] = useState({
 		width: 800,
 		height: 600,
 	});
-	const [tiles, setTiles] = useState([]);
 
 	useEffect(() => {
 		const _tiles = [];
@@ -32,7 +32,7 @@ export default function MenuPage() {
 			_tiles.push(row);
 		}
 		setTiles(_tiles);
-	}, []);
+	}, [mapSize]);
 
 	return (
 		<div
@@ -46,17 +46,18 @@ export default function MenuPage() {
 			}}
 		>
 			<TilePalette
+				tileset={tileset}
 				position={position}
+				size={size}
 				activeTile={activeTile}
 				setActiveTile={setActiveTile}
-				size={size}
-				tileset={tileset}
 			/>
 			<Map
-				tileset={tileset}
-				activeTile={activeTile}
 				tiles={tiles}
+				tileset={tileset}
 				size={mapSize}
+				activeTile={activeTile}
+				setTiles={setTiles}
 			/>
 		</div>
 	);

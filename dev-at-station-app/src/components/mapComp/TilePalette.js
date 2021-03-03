@@ -25,7 +25,6 @@ export default function TilePalette({
 
 	return (
 		<div
-			id="palette"
 			style={{
 				position: 'absolute',
 				zIndex: 100,
@@ -36,6 +35,7 @@ export default function TilePalette({
 			}}
 		>
 			<div
+				id="palette"
 				style={{
 					background: `url(${tileset})`,
 					backgroundRepeat: 'no-repeat',
@@ -58,6 +58,7 @@ export default function TilePalette({
 								backgroundPosition: `-${x * 32}px -${y * 32}px`,
 								width: '32px',
 								height: '32px',
+								cursor: 'pointer',
 							}}
 						/>
 					))}

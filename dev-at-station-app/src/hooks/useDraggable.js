@@ -17,8 +17,8 @@ export default function useDraggable(id) {
 		});
 		return () => {
 			document.body.removeEventListener('mousedown', move);
-			document.body.removeEventListener('mouseup', move);
 			document.body.removeEventListener('mousemove', move);
+			document.body.removeEventListener('mouseup', move);
 		};
 	}, [id]);
 
