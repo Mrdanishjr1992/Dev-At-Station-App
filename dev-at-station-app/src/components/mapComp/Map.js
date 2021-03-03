@@ -1,6 +1,13 @@
 import React from 'react';
 
-export default function Map({ tiles, setTiles, activeTile, tileset, size }) {
+export default function Map({
+	tiles,
+	setTiles,
+	activeTile,
+	bgTile,
+	tileset,
+	size,
+}) {
 	function cloneMatrix(m) {
 		const clone = new Array(m.length);
 		for (let i = 0; i < m.length; ++i) {
@@ -20,34 +27,69 @@ export default function Map({ tiles, setTiles, activeTile, tileset, size }) {
 			return clone;
 		});
 	}
+
 	return (
-		<div
-			style={{
-				boxSizing: 'border-box',
-				backgroundColor: 'white',
-				width: size.width,
-			}}
-		>
-			{tiles.map((row, y) => (
-				<div key={y} style={{ display: 'flex' }}>
-					{row.map((tile, x) => (
-						<div
-							onClick={() => dropTile({ x, y })}
-							key={x}
-							style={{
-								borderTop: '1px solid black',
-								borderRight: '1px solid black',
-								background: `url(${tileset})`,
-								backgroundRepeat: 'no-repeat',
-								backgroundPosition: `-${tile.v.x}px -${tile.v.y}px`,
-								width: '32px',
-								height: '32px',
-								cursor: 'pointer',
-							}}
-						/>
-					))}
-				</div>
-			))}
-		</div>
+		<>
+			<div
+				style={{
+					position: 'absolute',
+					zIndex: 2,
+					boxSizing: 'border-box',
+					backgroundColor: 'transparent',
+					width: size.width,
+				}}
+			>
+				{tiles.map((row, y) => (
+					<div key={y} style={{ display: 'flex' }}>
+						{row.map((tile, x) => (
+							<div
+								onClick={() => dropTile({ x, y })}
+								key={x}
+								style={{
+									borderTop: '1px solid black',
+									borderRight: '1px solid black',
+									background: `url(${tileset})`,
+									backgroundRepeat: 'no-repeat',
+									backgroundPosition: `-${tile.v.x}px -${tile.v.y}px`,
+									width: '32px',
+									height: '32px',
+									cursor: 'pointer',
+								}}
+							/>
+						))}
+					</div>
+				))}
+			</div>
+			<div
+				style={{
+					position: 'absolute',
+					zIndex: 1,
+					boxSizing: 'border-box',
+					backgroundColor: 'transparent',
+					width: size.width,
+				}}
+			>
+				{tiles.map((row, y) => (
+					<div key={y} style={{ display: 'flex' }}>
+						{row.map((tile, x) => (
+							<div
+								onClick={() => dropTile({ x, y })}
+								key={x}
+								style={{
+									borderTop: '1px solid black',
+									borderRight: '1px solid black',
+									background: `url(${tileset})`,
+									backgroundRepeat: 'no-repeat',
+									backgroundPosition: `-${bgTile.x}px -${bgTile.y}px`,
+									width: '32px',
+									height: '32px',
+									cursor: 'pointer',
+								}}
+							/>
+						))}
+					</div>
+				))}
+			</div>
+		</>
 	);
 }

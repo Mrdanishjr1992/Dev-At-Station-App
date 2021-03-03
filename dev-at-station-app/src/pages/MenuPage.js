@@ -8,6 +8,7 @@ export default function MenuPage() {
 	const size = { width: 640, height: 288 };
 	const { position } = useDrag('palette');
 	const [activeTile, setActiveTile] = useState({ x: 1 * 32, y: 4 * 32 });
+	const [bgTile, setBgTile] = useState({ x: 1 * 32, y: 4 * 32 });
 	const [tiles, setTiles] = useState([]);
 	const [tileset, setTileset] = useState('../images/maps/spring.png');
 	const [mapSize, setMapSize] = useState({
@@ -26,7 +27,7 @@ export default function MenuPage() {
 					x,
 					y,
 					id: id++,
-					v: { x: -32, y: -32 },
+					v: { x: 1 * 32, y: 4 * 32 },
 				});
 			}
 			_tiles.push(row);
@@ -51,6 +52,7 @@ export default function MenuPage() {
 				size={size}
 				activeTile={activeTile}
 				setActiveTile={setActiveTile}
+				setBgTile={setBgTile}
 			/>
 			<Map
 				tiles={tiles}
@@ -58,6 +60,7 @@ export default function MenuPage() {
 				size={mapSize}
 				activeTile={activeTile}
 				setTiles={setTiles}
+				bgTile={bgTile}
 			/>
 		</div>
 	);

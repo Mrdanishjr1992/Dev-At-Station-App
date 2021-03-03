@@ -28,7 +28,7 @@ export default function TilePalette({
 			style={{
 				position: 'absolute',
 				zIndex: 100,
-				backgroundColor: 'white',
+				backgroundColor: 'transparent',
 				border: '1px solid black',
 				top: position.y,
 				left: position.x,
@@ -37,6 +37,7 @@ export default function TilePalette({
 			<div
 				id="palette"
 				style={{
+					backgroundColor: 'transparent',
 					background: `url(${tileset})`,
 					backgroundRepeat: 'no-repeat',
 					backgroundPosition: `-${activeTile.x}px -${activeTile.y}px`,
@@ -51,6 +52,7 @@ export default function TilePalette({
 							onClick={() => setActiveTile({ x: x * 32, y: y * 32 })}
 							key={x}
 							style={{
+								backgroundColor: 'transparent',
 								borderTop: '1px solid black',
 								borderRight: '1px solid black',
 								background: `url(${tileset})`,
