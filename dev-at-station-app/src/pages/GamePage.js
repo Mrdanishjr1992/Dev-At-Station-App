@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Player from '../components/heroComp/Player';
 import RenderMap from '../components/mapComp/RenderMap';
-import useWalk from '../hooks/useWalk';
 
 export default function GamePage() {
-	const { dir, step, walk, position } = useWalk(3);
-
 	const skins = ['char1', 'char2', 'char3', 'char4'];
 	const [mapObj, setMapObj] = useState({
 		bgTile: { x: 1 * 32, y: 4 * 32 },
@@ -24,15 +21,18 @@ export default function GamePage() {
 				})
 			);
 	}, []);
+
 	return (
 		<>
 			<h1 className="text-8xl text-center text-red-800 mt-3">
 				Retro-Game-Maker
 			</h1>
 			<div
-				id="map"
+				className="camera"
 				style={{
-					background: `-${position.x} -${position.y}`,
+					position: 'relative',
+					width: 800,
+					height: 600,
 				}}
 			>
 				<RenderMap
@@ -40,15 +40,7 @@ export default function GamePage() {
 					mapTile={mapObj.mapTiles}
 					mapTypes={mapObj.mapType}
 				/>
-			</div>
-			<div className="camera">
-				<Player
-					skin={skins[1]}
-					dir={dir}
-					step={step}
-					walk={walk}
-					position={position}
-				/>
+				<Player skin={skins[1]} />
 			</div>
 		</>
 	);

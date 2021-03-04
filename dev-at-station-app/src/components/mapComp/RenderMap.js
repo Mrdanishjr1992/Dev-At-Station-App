@@ -6,18 +6,11 @@ export default function RenderMap({ bgTile, mapTile, mapTypes }) {
 	const mapType = mapTypes;
 
 	return (
-		<div
-			style={{
-				position: 'relative',
-				boxSizing: 'border-box',
-				backgroundColor: 'transparent',
-			}}
-		>
+		<>
 			<div
 				style={{
 					position: 'absolute',
-					zIndex: 2,
-					boxSizing: 'border-box',
+					zIndex: 1,
 					backgroundColor: 'transparent',
 					width: 800,
 					height: 600,
@@ -31,7 +24,7 @@ export default function RenderMap({ bgTile, mapTile, mapTypes }) {
 								style={{
 									background: `url(${mapType})`,
 									backgroundRepeat: 'no-repeat',
-									backgroundPosition: `-${tile.x}px -${tile.y}px`,
+									backgroundPosition: `-${tile.v.x}px -${tile.v.y}px`,
 									width: '32px',
 									height: '32px',
 									cursor: 'pointer',
@@ -44,7 +37,7 @@ export default function RenderMap({ bgTile, mapTile, mapTypes }) {
 			<div
 				style={{
 					position: 'absolute',
-					zIndex: 1,
+					zIndex: 0,
 					boxSizing: 'border-box',
 					backgroundColor: 'transparent',
 					width: 800,
@@ -69,6 +62,6 @@ export default function RenderMap({ bgTile, mapTile, mapTypes }) {
 					</div>
 				))}
 			</div>
-		</div>
+		</>
 	);
 }

@@ -30,24 +30,24 @@ body {
 }
 .camera {
 	border: rgb(113, 11, 104) solid 10px;
-	width: 50%;
-	height: 50%;
+	width: 70%;
+	height: 70%;
 	overflow: hidden;
 	background: transparent;
-	position: absolute;
-	top: 25%;
-	left: 25%;
+	position: relative;
+	top: 15%;
+	left: 15%;
 }
 #map {
 	image-rendering: crisp-edges;
 	z-index: 0;
-	position: absolute;
 }
 #hero {
 	position: absolute;
 	background-size: 96px 128px;
 	top: 48%;
 	left: 48%;
+	z-index: 3;
 	background-repeat: no-repeat;
 	image-rendering: pixelated;
 	image-rendering: crisp-edges;
