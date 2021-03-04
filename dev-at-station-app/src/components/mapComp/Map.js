@@ -7,6 +7,7 @@ export default function Map({
 	bgTile,
 	tileset,
 	size,
+	setSaveMap,
 }) {
 	function cloneMatrix(m) {
 		const clone = new Array(m.length);
@@ -26,7 +27,15 @@ export default function Map({
 			clone[y][x] = tile;
 			return clone;
 		});
-		console.log(tiles);
+		setSaveMap(() => {
+			const mapObj = {
+				tiles: tiles,
+				bgTile: bgTile,
+				mapType: tileset,
+				size: size,
+			};
+			return mapObj;
+		});
 	}
 
 	return (
@@ -74,7 +83,6 @@ export default function Map({
 					<div key={y} style={{ display: 'flex' }}>
 						{row.map((tile, x) => (
 							<div
-								onClick={() => dropTile({ x, y })}
 								key={x}
 								style={{
 									background: `url(${tileset})`,

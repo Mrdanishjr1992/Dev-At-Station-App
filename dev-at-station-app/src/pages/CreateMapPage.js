@@ -15,12 +15,18 @@ export default function CreateMapPage() {
 		width: 800,
 		height: 600,
 	}; // Size of the map created
+	const [saveMap, setSaveMap] = useState({
+		tiles: tiles,
+		bgTile: bgTile,
+		mapType: tileset,
+		size: mapSize,
+	});
 
 	const mapOptions = ['../images/maps/spring.png', '../images/maps/winter.png'];
+
 	useEffect(() => {
 		const _tiles = [];
 		let id = 0;
-
 		for (let y = 0; y < 600; y = y + 32) {
 			const row = [];
 			for (let x = 0; x < 800; x = x + 32) {
@@ -35,6 +41,24 @@ export default function CreateMapPage() {
 		}
 		setTiles(_tiles);
 	}, []);
+
+	function save() {
+		setSaveMap({
+			tiles: tiles,
+			bgTile: bgTile,
+			mapType: tileset,
+			size: mapSize,
+		});
+		fetch('http://localhost:4000/map', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(saveMap),
+		})
+			.then((res) => res.json())
+			.then((data) => console.log(data));
+	}
 
 	return (
 		<div
@@ -51,7 +75,13 @@ export default function CreateMapPage() {
 				<a href="/" className="btn btn-danger ml-2 mr-1">
 					Esc
 				</a>
-				<button className="btn btn-success ml-1 mr-2">Save</button>
+				<button
+					onClick={() => save()}
+					id="save"
+					className="btn btn-success ml-1 mr-2"
+				>
+					Save
+				</button>
 			</div>
 
 			<TilePalette
@@ -73,6 +103,7 @@ export default function CreateMapPage() {
 				activeTile={activeTile}
 				setTiles={setTiles}
 				bgTile={bgTile}
+				setSaveMap={setSaveMap}
 			/>
 		</div>
 	);

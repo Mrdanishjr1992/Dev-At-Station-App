@@ -33,23 +33,19 @@ body {
 	width: 50%;
 	height: 50%;
 	overflow: hidden;
-	background: #61ddf7;
+	background: transparent;
 	position: absolute;
 	top: 25%;
 	left: 25%;
 }
-.map {
-	image-rendering: pixelated;
-	background-image: url('https://assets.codepen.io/21542/CameraDemoMap.png');
-	background-size: 100%;
-	width: calc(20 * var(--grid-cell));
-	height: calc(16 * var(--grid-cell));
-	position: relative;
+#map {
+	image-rendering: crisp-edges;
 	z-index: 0;
+	position: absolute;
 }
 #hero {
 	position: absolute;
-	background-size: 192px 256px;
+	background-size: 96px 128px;
 	top: 48%;
 	left: 48%;
 	background-repeat: no-repeat;

@@ -1,13 +1,13 @@
 import React from 'react';
 import Actor from './Actor';
 import useKeyPress from '../../hooks/useKeyPress';
-import useWalk from '../../hooks/useWalk';
+// import useWalk from '../../hooks/useWalk';
 
-export default function Player({ skin }) {
-	const { dir, step, walk, position } = useWalk(3);
+export default function Player({ skin, dir, step, walk, position }) {
+	// const { dir, step, walk, position } = useWalk(3);
 	const data = {
-		h: 32 * 2,
-		w: 32 * 2,
+		h: 32,
+		w: 32,
 	};
 
 	useKeyPress((e) => {

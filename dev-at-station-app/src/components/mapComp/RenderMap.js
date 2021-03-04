@@ -1,14 +1,16 @@
 import React from 'react';
 
-export default function RenderMap({ bgTiles, mapTiles, size, mapType }) {
+export default function RenderMap({ bgTile, mapTile, mapTypes }) {
+	const bgtile = bgTile;
+	const mapTiles = mapTile;
+	const mapType = mapTypes;
+
 	return (
 		<div
 			style={{
 				position: 'relative',
 				boxSizing: 'border-box',
 				backgroundColor: 'transparent',
-				width: size.width,
-				height: size.height,
 			}}
 		>
 			<div
@@ -17,8 +19,8 @@ export default function RenderMap({ bgTiles, mapTiles, size, mapType }) {
 					zIndex: 2,
 					boxSizing: 'border-box',
 					backgroundColor: 'transparent',
-					width: size.width,
-					height: size.height,
+					width: 800,
+					height: 600,
 				}}
 			>
 				{mapTiles.map((row, y) => (
@@ -45,11 +47,11 @@ export default function RenderMap({ bgTiles, mapTiles, size, mapType }) {
 					zIndex: 1,
 					boxSizing: 'border-box',
 					backgroundColor: 'transparent',
-					width: size.width,
-					height: size.height,
+					width: 800,
+					height: 600,
 				}}
 			>
-				{bgTiles.map((row, y) => (
+				{mapTiles.map((row, y) => (
 					<div key={y} style={{ display: 'flex' }}>
 						{row.map((tile, x) => (
 							<div
@@ -57,7 +59,7 @@ export default function RenderMap({ bgTiles, mapTiles, size, mapType }) {
 								style={{
 									background: `url(${mapType})`,
 									backgroundRepeat: 'no-repeat',
-									backgroundPosition: `-${tile.x}px -${tile.y}px`,
+									backgroundPosition: `-${bgtile.x}px -${bgtile.y}px`,
 									width: '32px',
 									height: '32px',
 									cursor: 'pointer',
