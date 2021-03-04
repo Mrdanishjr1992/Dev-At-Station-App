@@ -1,36 +1,16 @@
 import React from 'react';
 
-export default function Map({
-	tiles,
-	setTiles,
-	activeTile,
-	bgTile,
-	tileset,
-	size,
-}) {
-	function cloneMatrix(m) {
-		const clone = new Array(m.length);
-		for (let i = 0; i < m.length; ++i) {
-			clone[i] = m[i].slice(0);
-		}
-		return clone;
-	}
-
-	function dropTile({ x, y }) {
-		setTiles((prev) => {
-			const clone = cloneMatrix(prev);
-			const tile = {
-				...clone[y][x],
-				v: activeTile,
-			};
-			clone[y][x] = tile;
-			return clone;
-		});
-		console.log(tiles);
-	}
-
+export default function RenderMap({ bgTiles, mapTiles, size, mapType }) {
 	return (
-		<>
+		<div
+			style={{
+				position: 'relative',
+				boxSizing: 'border-box',
+				backgroundColor: 'transparent',
+				width: size.width,
+				height: size.height,
+			}}
+		>
 			<div
 				style={{
 					position: 'absolute',
@@ -38,20 +18,18 @@ export default function Map({
 					boxSizing: 'border-box',
 					backgroundColor: 'transparent',
 					width: size.width,
+					height: size.height,
 				}}
 			>
-				{tiles.map((row, y) => (
+				{mapTiles.map((row, y) => (
 					<div key={y} style={{ display: 'flex' }}>
 						{row.map((tile, x) => (
 							<div
-								onClick={() => dropTile({ x, y })}
 								key={x}
 								style={{
-									borderTop: '.1px solid black',
-									borderRight: '.1px solid black',
-									background: `url(${tileset})`,
+									background: `url(${mapType})`,
 									backgroundRepeat: 'no-repeat',
-									backgroundPosition: `-${tile.v.x}px -${tile.v.y}px`,
+									backgroundPosition: `-${tile.x}px -${tile.y}px`,
 									width: '32px',
 									height: '32px',
 									cursor: 'pointer',
@@ -68,18 +46,18 @@ export default function Map({
 					boxSizing: 'border-box',
 					backgroundColor: 'transparent',
 					width: size.width,
+					height: size.height,
 				}}
 			>
-				{tiles.map((row, y) => (
+				{bgTiles.map((row, y) => (
 					<div key={y} style={{ display: 'flex' }}>
 						{row.map((tile, x) => (
 							<div
-								onClick={() => dropTile({ x, y })}
 								key={x}
 								style={{
-									background: `url(${tileset})`,
+									background: `url(${mapType})`,
 									backgroundRepeat: 'no-repeat',
-									backgroundPosition: `-${bgTile.x}px -${bgTile.y}px`,
+									backgroundPosition: `-${tile.x}px -${tile.y}px`,
 									width: '32px',
 									height: '32px',
 									cursor: 'pointer',
@@ -89,6 +67,6 @@ export default function Map({
 					</div>
 				))}
 			</div>
-		</>
+		</div>
 	);
 }

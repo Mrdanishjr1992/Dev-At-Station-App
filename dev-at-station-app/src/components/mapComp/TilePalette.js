@@ -1,12 +1,18 @@
 import React from 'react';
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
 
 export default function TilePalette({
 	tileset,
+	setTileset,
 	position,
 	size,
 	activeTile,
 	setActiveTile,
 	setBgTile,
+	mapOptions,
+	mapOption,
+	setMapOption,
 }) {
 	const { width, height } = size;
 	const tiles = [];
@@ -23,21 +29,23 @@ export default function TilePalette({
 		}
 		tiles.push(row);
 	}
+
 	function fillBg() {
 		setBgTile(activeTile);
 	}
+
 	return (
 		<div
 			style={{
 				position: 'absolute',
 				zIndex: 100,
-				backgroundColor: 'transparent',
+				backgroundColor: 'grey',
 				border: '1px solid black',
 				top: position.y,
 				left: position.x,
 			}}
 		>
-			<div style={{ display: 'flex', backgroundColor: 'white' }}>
+			<div className="bg-blue-800" style={{ display: 'flex' }}>
 				<div
 					id="handlebar"
 					style={{
@@ -62,6 +70,12 @@ export default function TilePalette({
 				<button className="btn" onClick={() => fillBg()}>
 					Fill Bg
 				</button>
+				{/* <Dropdown
+					options={mapOptions}
+					onChange={(option) => setTileset(option.text)}
+					value={tileset}
+					placeholder="Select an option"
+				/> */}
 			</div>
 
 			{tiles.map((row, y) => (

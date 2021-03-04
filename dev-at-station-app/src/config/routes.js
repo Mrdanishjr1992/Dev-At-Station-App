@@ -6,6 +6,7 @@ import GamePage from '../pages/GamePage';
 import LandingPage from '../pages/LandingPage';
 import LoadingPage from '../pages/LoadingPage';
 import MenuPage from '../pages/MenuPage';
+import CreateMapPage from '../pages/CreateMapPage';
 
 export default function Routes() {
 	return (
@@ -17,6 +18,7 @@ export default function Routes() {
 				<Route exact path="/game" component={GamePage} />
 				<Route exact path="/menu" component={MenuPage} />
 				<Route exact path="/battle" component={BattlePage} />
+				<Route exact path="/createmap" component={CreateMapPage} />
 			</Switch>
 		</>
 	);
