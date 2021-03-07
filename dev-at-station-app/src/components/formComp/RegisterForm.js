@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+// import { useHistory } from 'react-router-dom';
 
-export default function RegisterForm(props) {
+export default function RegisterForm() {
+	// const history = useHistory();
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 	const [confirm, setConfirm] = useState('');
 	const [error, setError] = useState(null);
+
 	const registerSubmit = (e) => {
 		e.preventDefault();
 
@@ -36,6 +39,12 @@ export default function RegisterForm(props) {
 				return setError(error.message);
 			});
 	};
+	// useEffect(() => {
+	// 	const token = {
+	// 		token: localStorage.getItem('token'),
+	// 	};
+	// 	if (token) history.push('/loading');
+	// });
 	return (
 		<form className="flex flex-col" onSubmit={registerSubmit}>
 			{error && <h2 className="text-red-700">{error}</h2>}

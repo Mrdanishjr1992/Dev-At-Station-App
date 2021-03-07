@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
-export default function LoginForm({ setUser, setToken, token }) {
-	// const history = useHistory();
+export default function LoginForm({ setToken }) {
+	const history = useHistory();
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 	const [error, setError] = useState(null);
@@ -35,26 +36,7 @@ export default function LoginForm({ setUser, setToken, token }) {
 				setToken(data.token);
 				// Store Token in localStorage
 				localStorage.setItem('token', data.token);
-			})
-			.then(() => {
-				fetch('http://localhost:4000/user/profile', {
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
-					},
-					body: JSON.stringify(token),
-				})
-					.then((response) => {
-						console.log(response);
-						if (response.status === 200) {
-							return response.json();
-						}
-					})
-					.then((data) => {
-						console.log(data);
-						setUser(data.profile);
-					})
-					.catch((err) => console.log(err));
+				history.push('/loading');
 			})
 			.catch((err) => {
 				return setError(err.message);

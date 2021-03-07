@@ -71,17 +71,26 @@ export default function CreateMapPage() {
 				border: '1px solid black',
 			}}
 		>
-			<div className="inline-block bg-blue-800 mb-1 p-2 border-black border-2">
-				<a href="/" className="btn btn-danger ml-2 mr-1">
-					Esc
-				</a>
-				<button
-					onClick={() => save()}
-					id="save"
-					className="btn btn-success ml-1 mr-2"
-				>
-					Save
-				</button>
+			<div className="flex w-full justify-between bg-blue-800 mb-1 p-2 border-black border-2">
+				<div className="m-3">
+					<a href="/loading" className="btn btn-warning">
+						Loading-Page
+					</a>
+				</div>
+				<div className="m-3">
+					<button
+						onClick={() => save()}
+						id="save"
+						className="btn btn-success ml-1 mr-2"
+					>
+						Save
+					</button>
+				</div>
+				<div className="m-3">
+					<a href="/" className="btn btn-danger">
+						Esc
+					</a>
+				</div>
 			</div>
 
 			<TilePalette
@@ -96,15 +105,17 @@ export default function CreateMapPage() {
 				setMapOption={setMapOption}
 				setTileset={setTileset}
 			/>
-			<Map
-				tiles={tiles}
-				tileset={tileset}
-				size={mapSize}
-				activeTile={activeTile}
-				setTiles={setTiles}
-				bgTile={bgTile}
-				setSaveMap={setSaveMap}
-			/>
+			<div className="flex justify-center m-5">
+				<Map
+					tiles={tiles}
+					tileset={tileset}
+					size={mapSize}
+					activeTile={activeTile}
+					setTiles={setTiles}
+					bgTile={bgTile}
+					setSaveMap={setSaveMap}
+				/>
+			</div>
 		</div>
 	);
 }
