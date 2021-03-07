@@ -1,6 +1,4 @@
 import React from 'react';
-import Dropdown from 'react-dropdown';
-import 'react-dropdown/style.css';
 
 export default function TilePalette({
 	tileset,
@@ -67,15 +65,9 @@ export default function TilePalette({
 						height: '32px',
 					}}
 				/>
-				<button className="btn" onClick={() => fillBg()}>
+				<button className="btn bg-gray-300" onClick={() => fillBg()}>
 					Fill Bg
 				</button>
-				{/* <Dropdown
-					options={mapOptions}
-					onChange={(option) => setTileset(option.text)}
-					value={tileset}
-					placeholder="Select an option"
-				/> */}
 			</div>
 
 			{tiles.map((row, y) => (

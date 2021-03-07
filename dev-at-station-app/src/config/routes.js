@@ -8,13 +8,13 @@ import LoadingPage from '../pages/LoadingPage';
 import MenuPage from '../pages/MenuPage';
 import CreateMapPage from '../pages/CreateMapPage';
 
-export default function Routes() {
+export default function Routes(props) {
 	return (
 		<>
 			<Switch>
 				<Route exact path="/" component={LandingPage} />
 				<Route exact path="/about" component={AboutPage} />
-				<Route exact path="/loading" component={LoadingPage} />
+				<Route exact path="/loading" component={LoadingPage} {...props} />
 				<Route exact path="/game" component={GamePage} />
 				<Route exact path="/menu" component={MenuPage} />
 				<Route exact path="/battle" component={BattlePage} />

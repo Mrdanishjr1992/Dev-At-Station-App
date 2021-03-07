@@ -9,16 +9,21 @@ export default function LandingPage() {
 					Start
 				</a>
 			</div>
-			<div
-				className="m-24"
-				style={{
-					background: `url('../images/characters/char4.png')`,
-					width: 128,
-					height: 128,
-					backgroundSize: '384px 512px',
-					imageRendering: 'crisp-edges',
-				}}
-			></div>
+			<div className="m-3">
+				<a href="/game" className="btn btn-success">
+					<div
+						className="m-24"
+						style={{
+							background: `url('../images/characters/char4.png')`,
+							width: 128,
+							height: 128,
+							backgroundSize: '384px 512px',
+							imageRendering: 'crisp-edges',
+						}}
+					/>
+					Dev-Mode(Game)
+				</a>
+			</div>
 			<div>
 				<a href="/about" className="btn btn-danger">
 					About
