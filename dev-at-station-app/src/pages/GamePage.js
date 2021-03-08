@@ -6,53 +6,44 @@ import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 
 export default function GamePage() {
-	let { slug } = useParams();
+	const slug = useParams();
 	const skins = ['char1', 'char2', 'char3', 'char4'];
-	const [mapObj, setMapObj] = useState({
-		bgTile: { x: 1 * 32, y: 4 * 32 },
-		mapTiles: [],
-		mapType: '../images/maps/spring.png',
-	});
+	const [mapObj, setMapObj] = useState(null);
 	const [maps, setMaps] = useState([]);
-	const [map, setMap] = useState();
+	const [mapId, setMapId] = useState('60459ec29a93ad6d9443e8e1');
 
 	useEffect(() => {
-		fetch(`http://localhost:4000/map/${slug}/all`)
-			.then((res) => res.json())
-			.then((data) => setMaps({ data }));
-	}, []);
-
-	useEffect(() => {
-		if (map)
-			fetch(`http://localhost:4000/map/${map._id}/show`)
+		if (slug)
+			fetch(`http://localhost:4000/map/${slug.id}/all`)
 				.then((res) => res.json())
-				.then((data) =>
-					setMapObj({
-						bgTile: data.bgTile,
-						mapTiles: data.tiles,
-						mapType: data.mapType,
-					})
-				);
-	}, [map]);
+				.then((data) => setMaps(data));
+	}, [slug]);
+
+	useEffect(() => {
+		fetch(`http://localhost:4000/map/${mapId}/show`)
+			.then((res) => res.json())
+			.then((data) => setMapObj(data));
+	}, [mapId]);
 
 	return (
 		<div className="flex flex-col ">
-			<div className="flex w-full justify-between bg-blue-800 mb-1 p-2 border-black border-2">
+			<div className="h-full flex w-full justify-between bg-blue-800 mb-1 p-2 border-black border-2">
 				<div className="m-3">
 					<a href="/loading" className="btn btn-danger">
 						Back
 					</a>
 				</div>
-				<div>
+				<div className="w-4/12 h-full m-3">
 					<Dropdown
-						options={maps}
-						onChange={() => setMap()}
-						value={mapObj}
-						placeholder="Select an option"
+						options={maps.map((option) => {
+							return { value: option._id, label: 'Map : ' + option._id };
+						})}
+						onChange={(option) => setMapId(option.value)}
+						placeholder={'Select a Map!'}
 					/>
 				</div>
 				<div className="m-3">
-					<a href={`/createmap/${slug}`} className="btn btn-warning">
+					<a href={`/createmap/${slug.id}`} className="btn btn-warning">
 						Map-Page
 					</a>
 				</div>
@@ -68,11 +59,8 @@ export default function GamePage() {
 					height: 600,
 				}}
 			>
-				<RenderMap
-					bgTile={mapObj.bgTile}
-					mapTile={mapObj.mapTiles}
-					mapTypes={mapObj.mapType}
-				/>
+				{mapObj && <RenderMap mapObj={mapObj} />}
+
 				<Player skin={skins[1]} />
 			</div>
 		</div>

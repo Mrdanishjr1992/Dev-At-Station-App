@@ -27,8 +27,9 @@ export default function Map({
 			clone[y][x] = tile;
 			return clone;
 		});
-		setSaveMap(() => {
+		setSaveMap((prev) => {
 			const mapObj = {
+				...prev,
 				tiles: tiles,
 				bgTile: bgTile,
 				mapType: tileset,

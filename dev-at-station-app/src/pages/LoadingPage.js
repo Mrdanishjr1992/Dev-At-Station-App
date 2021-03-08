@@ -49,8 +49,8 @@ export default function LoadingPage({ token }) {
 		<div className="flex flex-col align-items-center w-full h-full">
 			<div className="flex w-full justify-between">
 				<div className="m-3">
-					<a href="/loading" className="btn btn-primary">
-						Loading-Page
+					<a href="/about" className="btn btn-primary">
+						About
 					</a>
 				</div>
 				<div className="m-3">

@@ -5,7 +5,10 @@ import TilePalette from '../components/mapComp/TilePalette';
 import Map from '../components/mapComp/Map';
 
 export default function CreateMapPage() {
-	let { slug } = useParams();
+	const slug = useParams();
+	const tokenObj = {
+		token: localStorage.getItem('token'),
+	};
 	const size = { width: 640, height: 288 };
 	const { position } = useDrag('handlebar');
 	const [activeTile, setActiveTile] = useState({ x: 1 * 32, y: 4 * 32 });
@@ -22,6 +25,7 @@ export default function CreateMapPage() {
 		bgTile: bgTile,
 		mapType: tileset,
 		size: mapSize,
+		playerId: slug.id,
 	});
 	const mapOptions = ['../images/maps/spring.png', '../images/maps/winter.png'];
 
@@ -41,26 +45,30 @@ export default function CreateMapPage() {
 			_tiles.push(row);
 		}
 		setTiles(_tiles);
-	}, []);
+	}, [setTiles]);
 
 	function save() {
-		setSaveMap({
-			tiles: tiles,
-			bgTile: bgTile,
-			mapType: tileset,
-			size: mapSize,
-			playerId: slug,
-		});
-		fetch('http://localhost:4000/map', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(saveMap),
-		})
-			.then((res) => res.json())
-			.then((data) => console.log(data))
-			.catch((err) => console.log(err));
+		if (saveMap.tiles.length !== 0) {
+			setSaveMap({
+				tiles: tiles,
+				bgTile: bgTile,
+				mapType: tileset,
+				size: mapSize,
+				playerId: slug.id,
+			});
+			fetch('http://localhost:4000/map', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(saveMap),
+			})
+				.then((res) => res.json())
+				.then((data) => console.log(data))
+				.catch((err) => console.log(err));
+		} else {
+			console.log('no tiles');
+		}
 	}
 
 	return (
@@ -80,17 +88,20 @@ export default function CreateMapPage() {
 						Back
 					</a>
 				</div>
+				{tokenObj && (
+					<div className="m-3">
+						<button
+							onClick={() => save()}
+							id="save"
+							className="btn btn-success ml-1 mr-2"
+						>
+							Save
+						</button>
+					</div>
+				)}
+
 				<div className="m-3">
-					<button
-						onClick={() => save()}
-						id="save"
-						className="btn btn-success ml-1 mr-2"
-					>
-						Save
-					</button>
-				</div>
-				<div className="m-3">
-					<a href={`/game/${slug}`} className="btn btn-warning">
+					<a href={`/game/${slug.id}`} className="btn btn-warning">
 						Game-Page
 					</a>
 				</div>
