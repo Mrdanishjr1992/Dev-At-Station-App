@@ -41,9 +41,9 @@ export default function LoadingPage({ token }) {
 				})
 				.catch((err) => console.log(err));
 		} else {
-			return history.push('/');
+			history.push('/');
 		}
-	}, [userId]);
+	}, [userId, history]);
 
 	return (
 		<div className="flex flex-col align-items-center w-full h-full">

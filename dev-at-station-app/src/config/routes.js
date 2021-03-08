@@ -8,7 +8,7 @@ import LoadingPage from '../pages/LoadingPage';
 import MenuPage from '../pages/MenuPage';
 import CreateMapPage from '../pages/CreateMapPage';
 
-export default function Routes(props) {
+export default function Routes() {
 	const [token, setToken] = useState(null);
 
 	return (

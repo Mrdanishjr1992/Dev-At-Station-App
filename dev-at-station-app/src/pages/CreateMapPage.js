@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import useDrag from '../hooks/useDraggable';
 import TilePalette from '../components/mapComp/TilePalette';
 import Map from '../components/mapComp/Map';
 
 export default function CreateMapPage() {
+	let { slug } = useParams();
 	const size = { width: 640, height: 288 };
 	const { position } = useDrag('handlebar');
 	const [activeTile, setActiveTile] = useState({ x: 1 * 32, y: 4 * 32 });
@@ -21,7 +23,6 @@ export default function CreateMapPage() {
 		mapType: tileset,
 		size: mapSize,
 	});
-
 	const mapOptions = ['../images/maps/spring.png', '../images/maps/winter.png'];
 
 	useEffect(() => {
@@ -48,6 +49,7 @@ export default function CreateMapPage() {
 			bgTile: bgTile,
 			mapType: tileset,
 			size: mapSize,
+			playerId: slug,
 		});
 		fetch('http://localhost:4000/map', {
 			method: 'POST',
@@ -57,7 +59,8 @@ export default function CreateMapPage() {
 			body: JSON.stringify(saveMap),
 		})
 			.then((res) => res.json())
-			.then((data) => console.log(data));
+			.then((data) => console.log(data))
+			.catch((err) => console.log(err));
 	}
 
 	return (
@@ -73,8 +76,8 @@ export default function CreateMapPage() {
 		>
 			<div className="flex w-full justify-between bg-blue-800 mb-1 p-2 border-black border-2">
 				<div className="m-3">
-					<a href="/loading" className="btn btn-warning">
-						Loading-Page
+					<a href="/loading" className="btn btn-danger">
+						Back
 					</a>
 				</div>
 				<div className="m-3">
@@ -87,8 +90,8 @@ export default function CreateMapPage() {
 					</button>
 				</div>
 				<div className="m-3">
-					<a href="/" className="btn btn-danger">
-						Esc
+					<a href={`/game/${slug}`} className="btn btn-warning">
+						Game-Page
 					</a>
 				</div>
 			</div>

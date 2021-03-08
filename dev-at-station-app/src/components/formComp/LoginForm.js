@@ -24,28 +24,31 @@ export default function LoginForm({ setToken }) {
 			body: JSON.stringify(userObj),
 		})
 			.then((res) => {
-				if (res.status === 200) {
-					return res.json();
-				}
-				setError(res.statusText);
+				return res.json();
 			})
 			.then((data) => {
 				setUsername('');
 				setPassword('');
-				// Update authState in App.js
-				setToken(data.token);
-				// Store Token in localStorage
-				localStorage.setItem('token', data.token);
-				history.push('/loading');
+				if (data.error) {
+					setError(data.error);
+				} else {
+					// Update authState in App.js
+					setToken(data.token);
+					// Store Token in localStorage
+					localStorage.setItem('token', data.token);
+					history.push('/loading');
+				}
 			})
 			.catch((err) => {
 				return setError(err.message);
 			});
 	};
 	return (
-		<form className="flex flex-col" onSubmit={loginSubmit}>
-			{error && <h2 className="text-red-700">{error}</h2>}
-			<div className="flex flex-col border-black border-2">
+		<form className="flex flex-col w-full mt-5" onSubmit={loginSubmit}>
+			<div className="bg-gray-300 rounded-md text-center p-2 m-2">
+				{error && <h2 className="text-red-700">{error}</h2>}
+			</div>
+			<div className="flex flex-col border-black border-2  p-2 m-2">
 				<label htmlFor="username">UserName</label>
 				<input
 					type="text"
@@ -56,7 +59,7 @@ export default function LoginForm({ setToken }) {
 					required
 				/>
 			</div>
-			<div className="flex flex-col border-black border-2">
+			<div className="flex flex-col border-black border-2  p-2 m-2">
 				<label htmlFor="password">Password</label>
 				<input
 					type="password"

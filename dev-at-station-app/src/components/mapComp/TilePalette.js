@@ -43,31 +43,45 @@ export default function TilePalette({
 				left: position.x,
 			}}
 		>
-			<div className="bg-blue-800" style={{ display: 'flex' }}>
-				<div
-					id="handlebar"
-					style={{
-						backgroundImage: `url(./images/misc/handlebar.jpg)`,
-						backgroundSize: 'contain',
-						backgroundRepeat: 'no-repeat',
-						backgroundPosiition: 'center',
-						width: '32px',
-						height: '32px',
-					}}
-				/>
-				<div
-					id="palette"
-					style={{
-						background: `url(${tileset})`,
-						backgroundRepeat: 'no-repeat',
-						backgroundPosition: `-${activeTile.x}px -${activeTile.y}px`,
-						width: '32px',
-						height: '32px',
-					}}
-				/>
-				<button className="btn bg-gray-300" onClick={() => fillBg()}>
-					Fill Bg
-				</button>
+			<div
+				className="bg-blue-800 flex w-full justify-between p-1"
+				style={{ display: 'flex' }}
+			>
+				<div className="flex flex-col align-center h-full border-2 border-black rounded-lg bg-red-100 ">
+					<div
+						id="handlebar"
+						style={{
+							backgroundImage: `url(../images/misc/handlebar.jpg)`,
+							backgroundSize: 'contain',
+							backgroundRepeat: 'no-repeat',
+							backgroundPosiition: 'center',
+							width: '32px',
+							height: '32px',
+							margin: '2px',
+						}}
+					/>
+				</div>
+				<div className="flex flex-col align-center h-full border-2 border-black rounded-lg bg-red-100 ">
+					<div
+						id="palette"
+						style={{
+							background: `url(${tileset})`,
+							backgroundRepeat: 'no-repeat',
+							backgroundPosition: `-${activeTile.x}px -${activeTile.y}px`,
+							width: '32px',
+							height: '32px',
+							margin: '1px',
+						}}
+					/>
+				</div>
+				<div className="flex flex-col align-center h-full border-2 border-black rounded-lg bg-red-100 ">
+					<button
+						className="btn bg-gray-600 text-white text-bold"
+						onClick={() => fillBg()}
+					>
+						Fill Bg
+					</button>
+				</div>
 			</div>
 
 			{tiles.map((row, y) => (
