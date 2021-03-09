@@ -2,20 +2,16 @@ import React from 'react';
 
 export default function TilePalette({
 	tileset,
-	setTileset,
 	position,
 	size,
 	activeTile,
 	setActiveTile,
 	setBgTile,
-	mapOptions,
 	mapOption,
-	setMapOption,
 }) {
 	const { width, height } = size;
 	const tiles = [];
 	let id = 0;
-
 	for (let y = 0; y < height; y = y + 32) {
 		const row = [];
 		for (let x = 0; x < width; x = x + 32) {
@@ -44,7 +40,7 @@ export default function TilePalette({
 			}}
 		>
 			<div
-				className="bg-blue-800 flex w-full justify-between p-1"
+				className="bg-blue-800 flex w-full justify-between p-1 align-items-center"
 				style={{ display: 'flex' }}
 			>
 				<div className="flex flex-col align-center h-full border-2 border-black rounded-lg bg-red-100 ">
@@ -94,7 +90,7 @@ export default function TilePalette({
 								backgroundColor: 'transparent',
 								borderTop: '1px solid black',
 								borderRight: '1px solid black',
-								background: `url(${tileset})`,
+								background: `url(${mapOption})`,
 								backgroundRepeat: 'no-repeat',
 								backgroundPosition: `-${x * 32}px -${y * 32}px`,
 								width: '32px',

@@ -5,7 +5,7 @@
 :root {
 	--pixel-size: 2px;
 	--grid-cell: calc(var(--pixel-size) * 16);
-	--bg: #9fa7e4;
+	--bg: rgb(46, 43, 43);
 }
 @media (min-width: 700px) {
 	:root {
@@ -30,13 +30,12 @@ body {
 }
 .camera {
 	border: rgb(113, 11, 104) solid 10px;
-	width: 70%;
-	height: 70%;
+	background-color: #035e7b;
+	width: 800px;
+	height: 600px;
 	overflow: hidden;
-	background: transparent;
 	position: relative;
-	top: 15%;
-	left: 15%;
+	margin: 0 auto;
 }
 #map {
 	image-rendering: crisp-edges;
@@ -52,3 +51,73 @@ body {
 	image-rendering: pixelated;
 	image-rendering: crisp-edges;
 }
+/* https://dev.to/cooljasonmelton/build-this-cool-sign-in-form-with-react-and-css-10of */
+.cfb {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-image: url('https://res.cloudinary.com/practicaldev/image/fetch/s--aGMmMEgB--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/mkmvxeqiedslshxxm66g.png');
+}
+.Container {
+	position: relative;
+	top: 12em;
+	left: 25%;
+	width: 50%;
+	height: 60%;
+	box-shadow: 1px 2px 2px #592941;
+	border: 0.1em solid #592941;
+	border-radius: 0.5em;
+}
+.banner-side {
+	position: absolute;
+	z-index: 2;
+	right: 65%;
+
+	border: 0.1em solid #592941;
+	border-radius: 0.5em;
+
+	width: 35%;
+	height: 100%;
+
+	flex-direction: column;
+
+	background-color: #035e7b;
+	opacity: 1;
+
+	color: #eefcf8;
+	text-align: center;
+
+	transition: 2s;
+}
+.form-side {
+	position: absolute;
+	z-index: 1;
+	right: 0;
+
+	border: 0.1em solid #592941;
+	border-radius: 0.5em;
+
+	width: 65%;
+	height: 100%;
+
+	background-color: #eefcf8;
+	opacity: 1;
+
+	font-weight: bold;
+	color: #035e7b;
+
+	transition: 2s;
+}
+.send-right {
+	right: 0;
+}
+
+.send-left {
+	right: 35%;
+}
+.landing-form {
+	background-color: #592941;
+	padding: 1em;
+}
+/* https://dev.to/cooljasonmelton/build-this-cool-sign-in-form-with-react-and-css-10of */

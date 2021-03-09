@@ -1,16 +1,43 @@
 import React from 'react';
 
 export default function AboutPage() {
+	const token = localStorage.getItem('token');
 	return (
-		<div className="p-5">
-			<div>
-				<a href="/" className="btn btn-primary">
-					Esc
-				</a>
+		<div className="p-5 text-gray-300 ">
+			<div className="flex w-full justify-between align-items-center  p-2 mb-4">
+				<div className="m-3">
+					<a
+						href="/"
+						className="btn bg-yellow-400 font-bold  text-red-800 rounded-xl shadow-lg"
+					>
+						Contact
+					</a>
+				</div>
+				<h1 className="flex-grow text-red-500 font-bold text-6xl text-center mt-4">
+					Retro-Game-Maker
+				</h1>
+				{token ? (
+					<div className="m-3">
+						<a
+							href="/loading"
+							className="btn bg-red-800 font-bold  text-yellow-400 rounded-xl shadow-lg"
+						>
+							Back
+						</a>
+					</div>
+				) : (
+					<div className="m-3">
+						<a
+							href="/"
+							className="btn bg-red-800 font-bold  text-yellow-400 rounded-xl shadow-lg"
+						>
+							back
+						</a>
+					</div>
+				)}
 			</div>
 			<div className="h-full d-flex flex-column align-items-center align-content-center ">
-				<h1 className="start-header text-4xl m-4">Retro-Game-Maker</h1>
-				<p className="p-2">
+				<p className="p-2 text-2xl text-center">
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
 					cupiditate ducimus in nisi placeat quam laboriosam commodi ad.
 					Perspiciatis tempore illo suscipit aspernatur a numquam debitis dolore
@@ -18,16 +45,38 @@ export default function AboutPage() {
 					rerum voluptates ipsum deleniti. Debitis laborum recusandae delectus
 					est magni nulla suscipit autem a? Quas!
 				</p>
-				<div
-					className="m-24"
-					style={{
-						background: `url('../images/characters/char3.png')`,
-						width: 128,
-						height: 128,
-						backgroundSize: '384px 512px',
-						imageRendering: 'crisp-edges',
-					}}
-				></div>
+				<div className="flex">
+					<div
+						className="m-24"
+						style={{
+							background: `url('../images/characters/char1.png')`,
+							width: 128,
+							height: 128,
+							backgroundSize: '384px 512px',
+							imageRendering: 'crisp-edges',
+						}}
+					/>
+					<div
+						className="m-24"
+						style={{
+							background: `url('../images/characters/char3.png')`,
+							width: 128,
+							height: 128,
+							backgroundSize: '384px 512px',
+							imageRendering: 'crisp-edges',
+						}}
+					/>
+					<div
+						className="m-24"
+						style={{
+							background: `url('../images/characters/char4.png')`,
+							width: 128,
+							height: 128,
+							backgroundSize: '384px 512px',
+							imageRendering: 'crisp-edges',
+						}}
+					/>
+				</div>
 			</div>
 		</div>
 	);

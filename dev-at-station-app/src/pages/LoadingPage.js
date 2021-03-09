@@ -44,28 +44,39 @@ export default function LoadingPage({ token }) {
 			history.push('/');
 		}
 	}, [userId, history]);
-
+	function logout() {
+		localStorage.removeItem('token');
+	}
 	return (
 		<div className="flex flex-col align-items-center w-full h-full">
-			<div className="flex w-full justify-between">
+			<div className="flex w-full justify-between align-items-center  p-2 mb-4">
 				<div className="m-3">
-					<a href="/about" className="btn btn-primary">
+					<a
+						href="/about"
+						className="btn bg-green-600 text-red-800 font-bold rounded-xl shadow-lg"
+					>
 						About
 					</a>
 				</div>
+				<h1 className="text-red-500 font-bold text-6xl text-center mt-4">
+					Retro-Game-Maker
+				</h1>
 				<div className="m-3">
-					<a href="/" className="btn btn-primary">
-						Esc
+					<a
+						href="/"
+						onClick={() => logout()}
+						className="btn bg-red-800 font-bold  text-yellow-400 rounded-xl shadow-lg"
+					>
+						Logout
 					</a>
 				</div>
 			</div>
-			<h1 className="text-red-700 text-6xl text-center mt-4">
-				Retro-Game-Maker
-			</h1>
-			<div className="flex flex-col border-black border-2 bg-white p-2 m-3">
-				<h2 className="text-red-900 text-2xl text-center">Load Game</h2>
-				<div className="flex flex-col border-black border-2 bg-white p-2 m-3">
-					<div className="border-3 border-black p-2 bg-yellow-500">
+			<div className="flex flex-col border-black border-2 rounded-lg bg-white p-2 m-12 w-3/4">
+				<div className="flex border-black border-2 bg-black p-2 m-3">
+					<div className="border-3 flex-1 border-black p-2 landing-form">
+						<h2 className="text-blue-200 text-2xl text-center">
+							Create Game File
+						</h2>
 						<PlayerForm
 							token={token}
 							user={user}
@@ -74,13 +85,50 @@ export default function LoadingPage({ token }) {
 							setUserId={setUserId}
 						/>
 					</div>
-					<PlayerList
-						players={players}
-						setPlayers={setPlayers}
-						token={token}
-						user={user}
-						setUserId={setUserId}
-					/>
+					<div className="border-3 flex-1 border-black p-2 landing-form">
+						<div
+							style={{
+								margin: 'auto',
+								background: `url('../images/characters/char1.png')`,
+								width: 128,
+								height: 128,
+								backgroundSize: '384px 512px',
+								imageRendering: 'crisp-edges',
+							}}
+						/>
+						<div
+							style={{
+								margin: 'auto',
+								background: `url('../images/characters/char3.png')`,
+								width: 128,
+								height: 128,
+								backgroundSize: '384px 512px',
+								imageRendering: 'crisp-edges',
+							}}
+						/>
+						<div
+							style={{
+								margin: 'auto',
+								background: `url('../images/characters/char4.png')`,
+								width: 128,
+								height: 128,
+								backgroundSize: '384px 512px',
+								imageRendering: 'crisp-edges',
+							}}
+						/>
+					</div>
+					<div className="border-3 border-black p-2 landing-form flex flex-col justify-between">
+						<h2 className="text-blue-200 text-2xl text-center">
+							Load Game File
+						</h2>
+						<PlayerList
+							players={players}
+							setPlayers={setPlayers}
+							token={token}
+							user={user}
+							setUserId={setUserId}
+						/>
+					</div>
 				</div>
 			</div>
 		</div>

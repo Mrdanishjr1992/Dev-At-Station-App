@@ -24,7 +24,7 @@ export default function Routes() {
 				<Route exact path="/createmap/:id" component={CreateMapPage} />
 				<Route exact path="/menu" component={MenuPage} />
 				<Route exact path="/battle" component={BattlePage} />
-				<Route exact path="/about" component={AboutPage} />
+				<Route exact path="/about" component={AboutPage} token={token} />
 				{/* DEV MODE ROUTES */}
 				<Route exact path="/game" component={GamePage} />
 				<Route exact path="/createmap" component={CreateMapPage} />
