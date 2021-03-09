@@ -23,6 +23,7 @@ body {
 }
 body {
 	background: var(--bg);
+	font-family: 'Orbitron', 'AirbnbCerealBook', sans-serif;
 }
 .logo {
 	font-family: 'Orbitron', 'AirbnbCerealBook', sans-serif;
