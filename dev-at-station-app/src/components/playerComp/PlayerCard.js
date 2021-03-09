@@ -23,7 +23,7 @@ export default function PlayerCard({
 			.catch((err) => err);
 	}
 	return (
-		<div className="border-3 border-black p-2 bg-red-200 flex justify-between w-full flex-row">
+		<div className="border-3 border-black my-2 p-2 bg-red-200 flex justify-between w-full flex-row">
 			<a href={`/game/${player._id}`}>
 				<div>
 					<p>Name: {player.name}</p>

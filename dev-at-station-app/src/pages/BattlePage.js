@@ -1,5 +1,5 @@
 import React from 'react';
 
 export default function BattlePage() {
-	return <div>BattlePage</div>;
+	return <div>BattlePage coming soon ....</div>;
 }

@@ -29,8 +29,7 @@ body {
 	justify-content: center; */
 }
 .camera {
-	border: rgb(113, 11, 104) solid 10px;
-	background-color: #035e7b;
+	background-color: #607a83;
 	width: 800px;
 	height: 600px;
 	overflow: hidden;

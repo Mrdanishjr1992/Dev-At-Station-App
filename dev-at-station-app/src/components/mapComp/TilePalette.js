@@ -30,11 +30,11 @@ export default function TilePalette({
 
 	return (
 		<div
+			className="border-4 border-pink-900"
 			style={{
 				position: 'absolute',
 				zIndex: 100,
 				backgroundColor: 'grey',
-				border: '1px solid black',
 				top: position.y,
 				left: position.x,
 			}}

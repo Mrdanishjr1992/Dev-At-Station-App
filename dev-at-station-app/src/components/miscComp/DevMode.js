@@ -9,7 +9,7 @@ export default function DevMode() {
 					className="btn text-2xl btn-danger rounded-full shadow-2xl border-white border-1 "
 				>
 					<div
-						className="m-24  p-3"
+						className="m-24 bg-transparent  p-3"
 						style={{
 							background: `url('../images/characters/char4.png')`,
 							width: 128,
@@ -27,7 +27,7 @@ export default function DevMode() {
 					className="btn text-2xl btn-success rounded-full shadow-2xl border-white border-1 "
 				>
 					<div
-						className="m-24  p-3 "
+						className="m-24   p-3 bg-transparent"
 						style={{
 							background: `url('../images/characters/char3.png')`,
 							width: 128,
@@ -45,7 +45,7 @@ export default function DevMode() {
 					className="btn text-2xl btn-primary rounded-full shadow-2xl border-white border-1 "
 				>
 					<div
-						className="bg-red-400 m-24  p-3"
+						className="bg-red-400 m-24 bg-transparent   p-3"
 						style={{
 							background: `url('../images/characters/char1.png')`,
 							width: 128,

@@ -2,15 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import PlayerForm from '../components/formComp/PlayerForm';
 import PlayerEditForm from '../components/formComp/PlayerEditForm';
+import ProfileEditForm from '../components/formComp/ProfileEditForm';
 import PlayerList from '../components/playerComp/PlayerList';
 import Instructions from '../components/miscComp/Instructions';
 
-export default function LoadingPage({ token }) {
+export default function LoadingPage() {
 	const history = useHistory();
 	const [user, setUser] = useState({});
 	const [players, setPlayers] = useState([]);
 	const [userId, setUserId] = useState('');
 	const [editPlayer, setEditPlayer] = useState(null);
+	const [editUser, setEditUser] = useState(null);
 	useEffect(() => {
 		const tokenObj = {
 			token: localStorage.getItem('token'),
@@ -45,7 +47,7 @@ export default function LoadingPage({ token }) {
 		} else {
 			history.push('/');
 		}
-	}, [userId, history, editPlayer]);
+	}, [editUser, userId, history, editPlayer]);
 	function logout() {
 		localStorage.removeItem('token');
 	}
@@ -53,12 +55,12 @@ export default function LoadingPage({ token }) {
 		<div className="flex flex-col align-items-center w-full h-full">
 			<div className="flex w-full justify-between align-items-center  p-2 mb-4">
 				<div className="m-3">
-					<a
-						href="/profile"
+					<button
+						onClick={() => setEditUser(user)}
 						className="btn bg-green-800 text-yellow-300 border-black border-1 font-bold rounded-xl shadow-lg"
 					>
 						Profile
-					</a>
+					</button>
 				</div>
 				<h1 className="text-red-500 font-bold text-6xl text-center mt-4">
 					Retro-Game-Maker
@@ -85,46 +87,56 @@ export default function LoadingPage({ token }) {
 							Create Game File
 						</h2>
 						<PlayerForm
-							token={token}
 							user={user}
 							players={players}
 							setPlayers={setPlayers}
 							setUserId={setUserId}
 						/>
 					</div>
-					<div className="border-3 flex-1 border-black p-2 landing-form">
-						<div
-							style={{
-								margin: 'auto',
-								background: `url('../images/characters/char1.png')`,
-								width: 128,
-								height: 128,
-								backgroundSize: '384px 512px',
-								imageRendering: 'crisp-edges',
-							}}
+					{editUser ? (
+						<ProfileEditForm
+							user={user}
+							editUser={editUser}
+							setEditUser={setEditUser}
 						/>
-						<div
-							style={{
-								margin: 'auto',
-								background: `url('../images/characters/char3.png')`,
-								width: 128,
-								height: 128,
-								backgroundSize: '384px 512px',
-								imageRendering: 'crisp-edges',
-							}}
-						/>
-						<div
-							style={{
-								margin: 'auto',
-								background: `url('../images/characters/char4.png')`,
-								width: 128,
-								height: 128,
-								backgroundSize: '384px 512px',
-								imageRendering: 'crisp-edges',
-							}}
-						/>
-					</div>
-					<div className="border-3 border-black p-2 landing-form flex flex-col justify-between">
+					) : (
+						<>
+							<div className="border-3 flex-1 border-black p-2 landing-form">
+								<div
+									style={{
+										margin: 'auto',
+										background: `url('../images/characters/char1.png')`,
+										width: 128,
+										height: 128,
+										backgroundSize: '384px 512px',
+										imageRendering: 'crisp-edges',
+									}}
+								/>
+								<div
+									style={{
+										margin: 'auto',
+										background: `url('../images/characters/char3.png')`,
+										width: 128,
+										height: 128,
+										backgroundSize: '384px 512px',
+										imageRendering: 'crisp-edges',
+									}}
+								/>
+								<div
+									style={{
+										margin: 'auto',
+										background: `url('../images/characters/char4.png')`,
+										width: 128,
+										height: 128,
+										backgroundSize: '384px 512px',
+										imageRendering: 'crisp-edges',
+									}}
+								/>
+							</div>
+						</>
+					)}
+
+					<div className="border-3 border-black p-2 landing-form">
 						<h2 className="text-blue-200 text-2xl text-center">
 							{editPlayer ? 'Edit Game File' : 'Load Game File'}
 						</h2>
@@ -138,7 +150,6 @@ export default function LoadingPage({ token }) {
 							<PlayerList
 								players={players}
 								setPlayers={setPlayers}
-								token={token}
 								user={user}
 								setUserId={setUserId}
 								setEditPlayer={setEditPlayer}

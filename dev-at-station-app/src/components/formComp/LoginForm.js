@@ -32,10 +32,10 @@ export default function LoginForm() {
 				if (data.error) {
 					setError(data.error);
 				} else {
-					// Update authState in App.js
-					// setToken(data.token);
 					// Store Token in localStorage
 					localStorage.setItem('token', data.token);
+					// Update authState in App.js
+					// setToken(data.token);
 					history.push('/loading');
 				}
 			})
@@ -75,7 +75,7 @@ export default function LoginForm() {
 					/>
 				</div>
 				<div className="my-1 mx-auto">
-					<button className="btn btn-primary" type="submit">
+					<button className="btn btn-outline-primary" type="submit">
 						Login
 					</button>
 				</div>

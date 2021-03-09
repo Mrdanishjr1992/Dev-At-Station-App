@@ -3,7 +3,7 @@ import RegisterForm from '../components/formComp/RegisterForm';
 import LoginForm from '../components/formComp/LoginForm';
 import DevMode from '../components/miscComp/DevMode';
 
-export default function LandingPage({ token, setToken }) {
+export default function LandingPage() {
 	const [welcome, setWelcome] = useState(false);
 
 	const setBannerClass = () => {
@@ -44,7 +44,7 @@ export default function LandingPage({ token, setToken }) {
 					<div className={setFormClass()}>
 						{welcome ? (
 							<div>
-								<RegisterForm />
+								<RegisterForm setWelcome={setWelcome} welcome={welcome} />
 							</div>
 						) : (
 							<div>

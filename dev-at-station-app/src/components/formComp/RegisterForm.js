@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function RegisterForm() {
+export default function RegisterForm({ setWelcome, welcome }) {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 	const [confirm, setConfirm] = useState('');
@@ -38,6 +38,7 @@ export default function RegisterForm() {
 				} else {
 					setError('');
 					setMessage('Account Created!');
+					setWelcome(!welcome);
 				}
 			})
 			.catch((error) => {
@@ -89,7 +90,7 @@ export default function RegisterForm() {
 					/>
 				</div>
 				<div className="my-1 mx-auto">
-					<button className="btn btn-primary" type="submit">
+					<button className="btn btn-outline-primary" type="submit">
 						Register
 					</button>
 				</div>
