@@ -45,38 +45,53 @@ export default function GamePage() {
 		<div className="flex flex-col ">
 			<div className="flex w-full justify-between align-items-center  p-2 mb-4">
 				{token ? (
-					<div className="m-3">
-						<a
-							href="/loading"
-							className="btn bg-yellow-400 font-bold  text-red-800 rounded-xl shadow-lg"
-						>
-							Back
-						</a>
-					</div>
+					<>
+						<div className="m-3">
+							<a
+								href="/loading"
+								className="btn bg-yellow-400 font-bold  text-red-800 rounded-xl shadow-lg"
+							>
+								Back
+							</a>
+						</div>
+						<h1 className="text-red-500 font-bold text-6xl text-center mt-4">
+							Retro-Game-Maker
+						</h1>
+						<div className="m-3">
+							<a
+								href={`/createmap/${slug.id}`}
+								className="btn bg-red-800 font-bold  text-yellow-400 rounded-xl shadow-lg"
+							>
+								MapPage
+							</a>
+						</div>
+					</>
 				) : (
-					<div className="m-3">
-						<a
-							href="/"
-							className="btn bg-red-800 font-bold  text-yellow-400 rounded-xl shadow-lg"
-						>
-							Back
-						</a>
-					</div>
+					<>
+						<div className="m-3">
+							<a
+								href="/about"
+								className="btn bg-green-800 font-bold  text-yellow-400 rounded-xl shadow-lg"
+							>
+								about
+							</a>
+						</div>
+						<h1 className="text-red-500 font-bold text-6xl text-center mt-4">
+							Retro-Game-Maker
+						</h1>
+						<div className="m-3">
+							<a
+								href="/"
+								onClick={() => logout()}
+								className="btn bg-red-800 font-bold  text-yellow-400 rounded-xl shadow-lg"
+							>
+								back
+							</a>
+						</div>
+					</>
 				)}
-				<h1 className="text-red-500 font-bold text-6xl text-center mt-4">
-					Retro-Game-Maker
-				</h1>
-				<div className="m-3">
-					<a
-						href="/"
-						onClick={() => logout()}
-						className="btn bg-red-800 font-bold  text-yellow-400 rounded-xl shadow-lg"
-					>
-						Logout
-					</a>
-				</div>
 			</div>
-			<div className="h-full flex w-full justify-between  mb-1 p-2 border-black border-2">
+			<div className="h-full flex w-full justify-between  mb-1 p-2 ">
 				{token && (
 					<>
 						<div className="w-2/6 h-full m-3">

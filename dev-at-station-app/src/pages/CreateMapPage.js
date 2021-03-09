@@ -89,7 +89,9 @@ export default function CreateMapPage() {
 			setError('No tiles placed, Please edit map to save!');
 		}
 	}
-
+	function logout() {
+		localStorage.removeItem('token');
+	}
 	return (
 		<div
 			style={{
@@ -102,54 +104,73 @@ export default function CreateMapPage() {
 			}}
 		>
 			<div className="h-1/6">
-				<div className="flex w-full justify-between  mb-1 p-2 border-black border-2">
-					{tokenObj ? (
-						<div className="m-3">
-							<a
-								href="/loading"
-								className="btn bg-red-800 font-bold  text-yellow-400 rounded-xl shadow-lg"
-							>
-								Back
-							</a>
-						</div>
-					) : (
-						<div className="m-3">
-							<a
-								href="/"
-								className="btn bg-red-800 font-bold  text-yellow-400 rounded-xl shadow-lg"
-							>
-								back
-							</a>
-						</div>
-					)}
-					{tokenObj && (
+				<div className="flex w-full justify-between align-items-center  p-2 mb-4">
+					{tokenObj.token ? (
 						<>
 							<div className="m-3">
-								<button
-									onClick={() => save()}
-									id="save"
-									className="btn bg-green-800 font-bold  text-red-400 rounded-xl shadow-lg"
+								<a
+									href="/loading"
+									className="btn bg-yellow-400 font-bold  text-red-800 rounded-xl shadow-lg"
 								>
-									Save
-								</button>
+									Back
+								</a>
 							</div>
+							<h1 className="text-red-500 font-bold text-6xl text-center mt-4">
+								Retro-Game-Maker
+							</h1>
 							<div className="m-3">
 								<a
 									href={`/game/${slug.id}`}
-									className="btn text-green-700 font-bold  bg-yellow-400 rounded-xl shadow-lg"
+									className="btn bg-red-800 font-bold  text-yellow-400 rounded-xl shadow-lg"
 								>
-									Game-Page
+									GamePage
+								</a>
+							</div>
+						</>
+					) : (
+						<>
+							<div className="m-3">
+								<a
+									href="/about"
+									className="btn bg-green-800 font-bold  text-yellow-400 rounded-xl shadow-lg"
+								>
+									about
+								</a>
+							</div>
+							<h1 className="text-red-500 font-bold text-6xl text-center mt-4">
+								Retro-Game-Maker
+							</h1>
+							<div className="m-3">
+								<a
+									href="/"
+									onClick={() => logout()}
+									className="btn bg-red-800 font-bold  text-yellow-400 rounded-xl shadow-lg"
+								>
+									back
 								</a>
 							</div>
 						</>
 					)}
 				</div>
-				<h1 className="text-8xl font-bold text-center text-red-800 m-3">
-					Make Map
-				</h1>
+				<div className="flex w-full mb-1 p-2 -blackborder border-1  rounded-3xl">
+					{tokenObj.token && (
+						<div className="m-3">
+							<button
+								className="btn bg-green-700 font-bold  text-yellow-400 rounded-xl shadow-lg"
+								onClick={() => save()}
+								id="save"
+							>
+								Save
+							</button>
+						</div>
+					)}
+					<h1 className="flex-1 text-6xl font-bold text-center text-yellow-500 m-3">
+						Make Map
+					</h1>
+				</div>
 				<div className="text-center text-2xl pt-2 pb-0 mb-0 mt-2">
 					{error && <h2 className="text-red-700">{error}</h2>}
-					{message && <h2 className="text-green-700">{message}</h2>}
+					{message && <h2 className="text-red-200">{message}</h2>}
 				</div>
 			</div>
 			<TilePalette
