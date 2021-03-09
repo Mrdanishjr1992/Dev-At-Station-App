@@ -22,11 +22,10 @@ body {
 	height: 100vh;
 }
 body {
-	font-family: 'AirbnbCerealBook', sans-serif;
 	background: var(--bg);
-	/* display: flex;
-	align-items: center;
-	justify-content: center; */
+}
+.logo {
+	font-family: 'Orbitron', 'AirbnbCerealBook', sans-serif;
 }
 .camera {
 	background-color: #607a83;

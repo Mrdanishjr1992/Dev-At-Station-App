@@ -21,7 +21,7 @@ export default function LandingPage() {
 	return (
 		<div className="flex flex-col">
 			<div className="mb-12">
-				<h1 className="text-red-500 font-bold text-6xl text-center mt-4">
+				<h1 className="logo text-red-500 font-bold text-6xl text-center mt-4">
 					Retro-Game-Maker
 				</h1>
 			</div>
@@ -54,8 +54,14 @@ export default function LandingPage() {
 					</div>
 				</div>
 			</div>
-			<div className="absolute bottom-48 w-full">
+			<div className="absolute bottom-2 w-full">
+				<h2 className="text-white text-4xl text-center py-8">
+					Experience Retro Game-Making...!
+				</h2>
 				<DevMode />
+				<h2 className="text-white text-2xl text-center py-10">
+					More Features Coming Soon.
+				</h2>
 			</div>
 		</div>
 	);

@@ -13,7 +13,7 @@ export default function AboutPage() {
 						Contact
 					</a>
 				</div>
-				<h1 className="flex-grow text-red-500 font-bold text-6xl text-center mt-4">
+				<h1 className="flex-grow logo text-red-500 font-bold text-6xl text-center mt-4">
 					Retro-Game-Maker
 				</h1>
 				{token ? (

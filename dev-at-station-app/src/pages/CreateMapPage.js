@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import useDrag from '../hooks/useDraggable';
+import MapInstructions from '../components/miscComp/MapInstructions';
 import TilePalette from '../components/mapComp/TilePalette';
 import Map from '../components/mapComp/Map';
 
@@ -115,7 +116,7 @@ export default function CreateMapPage() {
 									Back
 								</a>
 							</div>
-							<h1 className="text-red-500 font-bold text-6xl text-center mt-4">
+							<h1 className="logo text-red-500 font-bold text-6xl text-center mt-4">
 								Retro-Game-Maker
 							</h1>
 							<div className="m-3">
@@ -137,7 +138,7 @@ export default function CreateMapPage() {
 									about
 								</a>
 							</div>
-							<h1 className="text-red-500 font-bold text-6xl text-center mt-4">
+							<h1 className="logo text-red-500 font-bold text-6xl text-center mt-4">
 								Retro-Game-Maker
 							</h1>
 							<div className="m-3">
@@ -182,7 +183,7 @@ export default function CreateMapPage() {
 				mapOption={mapOption}
 				tileset={tileset}
 			/>
-			<div className="flex justify-center my-36">
+			<div className="flex justify-center my-20">
 				<Map
 					tiles={tiles}
 					tileset={tileset}
@@ -193,34 +194,37 @@ export default function CreateMapPage() {
 					setSaveMap={setSaveMap}
 				/>
 			</div>
-			<div className="absolute bottom-3.5 p-4 flex w-full justify-between">
-				<div
-					style={{
-						background: `url('../images/characters/char4.png')`,
-						width: 128,
-						height: 128,
-						backgroundSize: '384px 512px',
-						imageRendering: 'crisp-edges',
-					}}
-				/>
-				<div
-					style={{
-						background: `url('../images/characters/char3.png')`,
-						width: 128,
-						height: 128,
-						backgroundSize: '384px 512px',
-						imageRendering: 'crisp-edges',
-					}}
-				/>
-				<div
-					style={{
-						background: `url('../images/characters/char1.png')`,
-						width: 128,
-						height: 128,
-						backgroundSize: '384px 512px',
-						imageRendering: 'crisp-edges',
-					}}
-				/>
+			<div className="absolute bottom-1 w-full">
+				<MapInstructions />
+				<div className=" p-4 flex w-full justify-between">
+					<div
+						style={{
+							background: `url('../images/characters/char4.png')`,
+							width: 128,
+							height: 128,
+							backgroundSize: '384px 512px',
+							imageRendering: 'crisp-edges',
+						}}
+					/>
+					<div
+						style={{
+							background: `url('../images/characters/char3.png')`,
+							width: 128,
+							height: 128,
+							backgroundSize: '384px 512px',
+							imageRendering: 'crisp-edges',
+						}}
+					/>
+					<div
+						style={{
+							background: `url('../images/characters/char1.png')`,
+							width: 128,
+							height: 128,
+							backgroundSize: '384px 512px',
+							imageRendering: 'crisp-edges',
+						}}
+					/>
+				</div>
 			</div>
 		</div>
 	);

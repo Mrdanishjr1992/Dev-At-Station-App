@@ -62,7 +62,7 @@ export default function LoadingPage() {
 						Profile
 					</button>
 				</div>
-				<h1 className="text-red-500 font-bold text-6xl text-center mt-4">
+				<h1 className="logo text-red-500 font-bold text-6xl text-center mt-4">
 					Retro-Game-Maker
 				</h1>
 				<div className="m-3">

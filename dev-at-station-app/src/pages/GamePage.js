@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Player from '../components/heroComp/Player';
 import RenderMap from '../components/mapComp/RenderMap';
+import GameInstructions from '../components/miscComp/GameInstructions';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import starterMap from '../components/miscComp/starterMap';
@@ -56,7 +57,7 @@ export default function GamePage() {
 								Back
 							</a>
 						</div>
-						<h1 className="text-red-500 font-bold text-6xl text-center mt-4">
+						<h1 className="logo text-red-500 font-bold text-6xl text-center mt-4">
 							Retro-Game-Maker
 						</h1>
 						<div className="m-3">
@@ -78,7 +79,7 @@ export default function GamePage() {
 								about
 							</a>
 						</div>
-						<h1 className="text-red-500 font-bold text-6xl text-center mt-4">
+						<h1 className="logo text-red-500 font-bold text-6xl text-center mt-4">
 							Retro-Game-Maker
 						</h1>
 						<div className="m-3">
@@ -138,6 +139,7 @@ export default function GamePage() {
 				{mapObj && <RenderMap mapObj={mapObj} />}
 				<Player skin={skin} />
 			</div>
+			<GameInstructions />
 			<div className="flex mx-auto">
 				<div
 					className="m-24"
