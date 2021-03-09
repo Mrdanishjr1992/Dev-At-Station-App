@@ -4,6 +4,7 @@ import Player from '../components/heroComp/Player';
 import RenderMap from '../components/mapComp/RenderMap';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
+import starterMap from '../components/miscComp/starterMap';
 
 export default function GamePage() {
 	const slug = useParams();
@@ -13,6 +14,7 @@ export default function GamePage() {
 	const [mapId, setMapId] = useState('');
 	const [maps, setMaps] = useState([]);
 	const token = localStorage.getItem('token');
+
 	useEffect(() => {
 		if (slug.id)
 			fetch(`http://localhost:4000/map/${slug.id}/all`)
@@ -25,7 +27,7 @@ export default function GamePage() {
 			fetch(`http://localhost:4000/map/${mapId}/show`)
 				.then((res) => res.json())
 				.then((data) => setMapObj(data));
-		if (!mapId) setMapObj(null);
+		if (!mapId) setMapObj(starterMap);
 	}, [mapId]);
 
 	function deleteMap() {
@@ -49,7 +51,7 @@ export default function GamePage() {
 						<div className="m-3">
 							<a
 								href="/loading"
-								className="btn bg-yellow-400 font-bold  text-red-800 rounded-xl shadow-lg"
+								className="btn bg-yellow-400 font-bold border-black border-1 text-red-800 rounded-xl shadow-lg"
 							>
 								Back
 							</a>
@@ -60,7 +62,7 @@ export default function GamePage() {
 						<div className="m-3">
 							<a
 								href={`/createmap/${slug.id}`}
-								className="btn bg-red-800 font-bold  text-yellow-400 rounded-xl shadow-lg"
+								className="btn bg-red-800 font-bold border-black border-1 text-yellow-400 rounded-xl shadow-lg"
 							>
 								MapPage
 							</a>
@@ -71,7 +73,7 @@ export default function GamePage() {
 						<div className="m-3">
 							<a
 								href="/about"
-								className="btn bg-green-800 font-bold  text-yellow-400 rounded-xl shadow-lg"
+								className="btn bg-green-800 font-bold border-black border-1  text-yellow-400 rounded-xl shadow-lg"
 							>
 								about
 							</a>
@@ -83,7 +85,7 @@ export default function GamePage() {
 							<a
 								href="/"
 								onClick={() => logout()}
-								className="btn bg-red-800 font-bold  text-yellow-400 rounded-xl shadow-lg"
+								className="btn bg-red-800 font-bold border-black border-1 text-yellow-400 rounded-xl shadow-lg"
 							>
 								back
 							</a>
@@ -114,11 +116,22 @@ export default function GamePage() {
 								onChange={(option) => setMapId(option.value)}
 								placeholder={'Select a Map!'}
 							/>
+							<div className="p-2 flex flex-row-reverse w-full justify-between align-items-center">
+								<button
+									className="btn  right-0 bg-red-800 font-bold border-black border-1 text-yellow-400 rounded-xl shadow-lg"
+									onClick={() => deleteMap()}
+								>
+									delete
+								</button>
+								<p className="text-white text-lg">
+									Delete Current Map (On View Port)
+								</p>
+							</div>
 						</div>
 					</>
 				)}
 			</div>
-			<h1 className="flex-grow text-yellow-500 font-bold text-6xl text-center mt-4">
+			<h1 className="flex-grow text-yellow-500 font-bold text-4xl text-center m-4">
 				PlayGame
 			</h1>
 			<div className="camera">

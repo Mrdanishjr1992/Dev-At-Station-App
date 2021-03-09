@@ -4,6 +4,7 @@ export default function RenderMap({ mapObj }) {
 	return (
 		<>
 			<div
+				className="border-4 border-pink-800 "
 				style={{
 					position: 'absolute',
 					zIndex: 1,

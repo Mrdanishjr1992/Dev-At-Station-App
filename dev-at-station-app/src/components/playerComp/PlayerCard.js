@@ -6,6 +6,7 @@ export default function PlayerCard({
 	setPlayers,
 	user,
 	setUserId,
+	setEditPlayer,
 }) {
 	async function handleDelete(playerId) {
 		await fetch(`http://localhost:4000/player/${playerId}/delete`, {
@@ -30,10 +31,16 @@ export default function PlayerCard({
 					<p>Bio: {player.bio}</p>
 				</div>
 			</a>
-			<div className="pt-5">
+			<div className="flex flex-col">
+				<button
+					onClick={() => setEditPlayer(player)}
+					className="btn p-2 m-1 border-black border-1 bg-yellow-400 font-bold  text-red-600 rounded-xl shadow-lg"
+				>
+					edit
+				</button>
 				<button
 					onClick={() => handleDelete(player._id)}
-					className="btn bg-red-800 font-bold  text-green-600 rounded-xl shadow-lg"
+					className="btn p-2 m-1 border-black border-1 bg-red-800 font-bold  text-yellow-400 rounded-xl shadow-lg"
 				>
 					delete
 				</button>

@@ -3,10 +3,13 @@ import React from 'react';
 export default function DevMode() {
 	return (
 		<div className="d-flex w-full justify-evenly">
-			<div>
-				<a href="/game" className="btn btn-danger">
+			<div className="border-box">
+				<a
+					href="/game"
+					className="btn text-2xl btn-danger rounded-full shadow-2xl border-white border-1 "
+				>
 					<div
-						className="m-24"
+						className="m-24  p-3"
 						style={{
 							background: `url('../images/characters/char4.png')`,
 							width: 128,
@@ -15,13 +18,16 @@ export default function DevMode() {
 							imageRendering: 'crisp-edges',
 						}}
 					/>
-					Dev-Mode( Game )
+					Try (Game)
 				</a>
 			</div>
-			<div>
-				<a href="/createmap" className="btn btn-success">
+			<div className="border-box">
+				<a
+					href="/createmap"
+					className="btn text-2xl btn-success rounded-full shadow-2xl border-white border-1 "
+				>
 					<div
-						className="m-24"
+						className="m-24  p-3 "
 						style={{
 							background: `url('../images/characters/char3.png')`,
 							width: 128,
@@ -30,13 +36,16 @@ export default function DevMode() {
 							imageRendering: 'crisp-edges',
 						}}
 					/>
-					Dev-Mode( Map creator )
+					Try (Map)
 				</a>
 			</div>
-			<div>
-				<a href="/about" className="btn btn-primary">
+			<div className="border-box">
+				<a
+					href="/about"
+					className="btn text-2xl btn-primary rounded-full shadow-2xl border-white border-1 "
+				>
 					<div
-						className="bg-red-400 m-24"
+						className="bg-red-400 m-24  p-3"
 						style={{
 							background: `url('../images/characters/char1.png')`,
 							width: 128,

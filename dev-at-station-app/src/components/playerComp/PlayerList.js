@@ -7,6 +7,7 @@ export default function PlayerList({
 	token,
 	user,
 	setUserId,
+	setEditPlayer,
 }) {
 	return players.map((player) => (
 		<PlayerCard
@@ -16,6 +17,7 @@ export default function PlayerList({
 			token={token}
 			user={user}
 			setUserId={setUserId}
+			setEditPlayer={setEditPlayer}
 		/>
 	));
 }

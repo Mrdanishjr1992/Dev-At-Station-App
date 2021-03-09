@@ -1,27 +1,23 @@
 import React, { useState } from 'react';
 
-export default function PlayerForm({
-	token,
-	user,
-	setPlayers,
-	setUserId,
-	players,
-}) {
+export default function PlayerEditForm({ user, editPlayer, setEditPlayer }) {
 	const [name, setName] = useState('');
 	const [gender, setGender] = useState('');
 	const [bio, setBio] = useState('');
+	const player = editPlayer;
 
 	async function registerSubmit(e) {
 		e.preventDefault();
+		const token = localStorage.getItem('token');
 		const playerObj = {
-			name,
-			gender,
-			bio,
+			name: name || player.name,
+			gender: gender || player.gender,
+			bio: bio || player.bio,
 			token,
 			userId: user._id,
 		};
-		await fetch('http://localhost:4000/player', {
-			method: 'POST',
+		await fetch(`http://localhost:4000/player/${editPlayer._id}`, {
+			method: 'PUT',
 			headers: {
 				'Content-Type': 'application/json',
 			},
@@ -34,15 +30,7 @@ export default function PlayerForm({
 				setName('');
 				setGender('');
 				setBio('');
-				fetch(`http://localhost:4000/player/${user._id}`)
-					.then((res) => {
-						return res.json();
-					})
-					.then((data) => {
-						setPlayers(data);
-						setUserId('form refresh');
-					})
-					.catch((err) => err);
+				setEditPlayer(null);
 			})
 			.catch((err) => {
 				return err;
@@ -61,7 +49,6 @@ export default function PlayerForm({
 					id="name"
 					value={name}
 					onChange={(e) => setName(e.target.value)}
-					required
 				/>
 			</div>
 			<div className="flex flex-col border-black border-2 m-3 bg-gray-800  p-2">
@@ -75,7 +62,6 @@ export default function PlayerForm({
 					id="gender"
 					value={gender}
 					onChange={(e) => setGender(e.target.value)}
-					required
 				/>
 			</div>
 			<div className="flex flex-col border-black border-2 m-3 bg-gray-800  p-2">
@@ -89,17 +75,18 @@ export default function PlayerForm({
 					id="bio"
 					value={bio}
 					onChange={(e) => setBio(e.target.value)}
-					required
 				/>
 			</div>
 			<div className="my-1 mx-auto">
-				{players.length < 3 ? (
-					<button className="btn btn-outline-primary" type="submit">
-						Register
-					</button>
-				) : (
-					<h3 className="text-blue-300 font-bold ">Max Files Reached</h3>
-				)}
+				<button
+					className="btn btn-outline-warning mx-1"
+					onClick={() => setEditPlayer(null)}
+				>
+					Back
+				</button>
+				<button className="btn btn-outline-primary mx-1" type="submit">
+					EDIT
+				</button>
 			</div>
 		</form>
 	);

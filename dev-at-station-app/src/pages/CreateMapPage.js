@@ -110,7 +110,7 @@ export default function CreateMapPage() {
 							<div className="m-3">
 								<a
 									href="/loading"
-									className="btn bg-yellow-400 font-bold  text-red-800 rounded-xl shadow-lg"
+									className="btn bg-yellow-400 border-black border-1 font-bold  text-red-800 rounded-xl shadow-lg"
 								>
 									Back
 								</a>
@@ -121,7 +121,7 @@ export default function CreateMapPage() {
 							<div className="m-3">
 								<a
 									href={`/game/${slug.id}`}
-									className="btn bg-red-800 font-bold  text-yellow-400 rounded-xl shadow-lg"
+									className="btn bg-red-800 font-bold border-black border-1 text-yellow-400 rounded-xl shadow-lg"
 								>
 									GamePage
 								</a>
@@ -132,7 +132,7 @@ export default function CreateMapPage() {
 							<div className="m-3">
 								<a
 									href="/about"
-									className="btn bg-green-800 font-bold  text-yellow-400 rounded-xl shadow-lg"
+									className="btn bg-green-800 font-bold border-black border-1  text-yellow-400 rounded-xl shadow-lg"
 								>
 									about
 								</a>
@@ -144,7 +144,7 @@ export default function CreateMapPage() {
 								<a
 									href="/"
 									onClick={() => logout()}
-									className="btn bg-red-800 font-bold  text-yellow-400 rounded-xl shadow-lg"
+									className="btn bg-red-800 font-bold border-black border-1 text-yellow-400 rounded-xl shadow-lg"
 								>
 									back
 								</a>
@@ -152,25 +152,25 @@ export default function CreateMapPage() {
 						</>
 					)}
 				</div>
-				<div className="flex w-full mb-1 p-2 -blackborder border-1  rounded-3xl">
+				<div className="flex  m-3 p-2 border-white border-1  rounded-3xl">
 					{tokenObj.token && (
 						<div className="m-3">
 							<button
-								className="btn bg-green-700 font-bold  text-yellow-400 rounded-xl shadow-lg"
+								className="btn bg-green-700 font-bold border-black border-1 text-yellow-400 rounded-xl shadow-lg"
 								onClick={() => save()}
 								id="save"
 							>
 								Save
 							</button>
+							<div className="text-center text-2xl pt-2 pb-0 mb-0 mt-2">
+								{error && <h2 className="text-red-700">{error}</h2>}
+								{message && <h2 className="text-red-200">{message}</h2>}
+							</div>
 						</div>
 					)}
-					<h1 className="flex-1 text-6xl font-bold text-center text-yellow-500 m-3">
+					<h1 className="flex-1 text-4xl font-bold text-center text-yellow-500 m-3">
 						Make Map
 					</h1>
-				</div>
-				<div className="text-center text-2xl pt-2 pb-0 mb-0 mt-2">
-					{error && <h2 className="text-red-700">{error}</h2>}
-					{message && <h2 className="text-red-200">{message}</h2>}
 				</div>
 			</div>
 			<TilePalette
@@ -182,7 +182,7 @@ export default function CreateMapPage() {
 				mapOption={mapOption}
 				tileset={tileset}
 			/>
-			<div className="flex justify-center m-5">
+			<div className="flex justify-center my-36">
 				<Map
 					tiles={tiles}
 					tileset={tileset}
@@ -193,7 +193,7 @@ export default function CreateMapPage() {
 					setSaveMap={setSaveMap}
 				/>
 			</div>
-			<div className="absolute bottom-3.5 left-1/3 mx-auto flex">
+			<div className="absolute bottom-3.5 p-4 flex w-full justify-between">
 				<div
 					style={{
 						background: `url('../images/characters/char4.png')`,
