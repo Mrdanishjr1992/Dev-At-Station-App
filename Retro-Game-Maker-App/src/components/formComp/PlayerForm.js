@@ -20,7 +20,7 @@ export default function PlayerForm({
 			token,
 			userId: user._id,
 		};
-		await fetch('http://localhost:4000/player', {
+		await fetch('https://retro-game-maker.herokuapp.com/player', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ export default function PlayerForm({
 				setName('');
 				setGender('');
 				setBio('');
-				fetch(`http://localhost:4000/player/${user._id}`)
+				fetch(`https://retro-game-maker.herokuapp.com/player/${user._id}`)
 					.then((res) => {
 						return res.json();
 					})

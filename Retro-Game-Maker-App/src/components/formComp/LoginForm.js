@@ -16,7 +16,7 @@ export default function LoginForm() {
 
 		const userObj = { username, password };
 
-		fetch('http://localhost:4000/user/login', {
+		fetch('https://retro-game-maker.herokuapp.com/user/login', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

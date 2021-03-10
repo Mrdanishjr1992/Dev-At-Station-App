@@ -13,7 +13,7 @@ export default function PlayerEditForm({ user, editUser, setEditUser }) {
 			username: username || user.username,
 			token,
 		};
-		await fetch(`http://localhost:4000/user/${user._id}`, {
+		await fetch(`https://retro-game-maker.herokuapp.com/user/${user._id}`, {
 			method: 'PUT',
 			headers: {
 				'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ export default function PlayerEditForm({ user, editUser, setEditUser }) {
 	async function deleteUser(e) {
 		const token = { token: localStorage.getItem('token') };
 
-		await fetch(`http://localhost:4000/user/delete`, {
+		await fetch(`https://retro-game-maker.herokuapp.com/user/delete`, {
 			method: 'delete',
 			headers: {
 				'Content-Type': 'application/json',

@@ -33,7 +33,7 @@ export default function CreateMapPage() {
 	const [message, setMessage] = useState('');
 	useEffect(() => {
 		if (slug)
-			fetch(`http://localhost:4000/map/${slug.id}/all`)
+			fetch(`https://retro-game-maker.herokuapp.com/map/${slug.id}/all`)
 				.then((res) => res.json())
 				.then((data) => setMaps(data))
 				.catch((err) => setError(err), setMessage(''));
@@ -66,7 +66,7 @@ export default function CreateMapPage() {
 				size: mapSize,
 				playerId: slug.id,
 			});
-			fetch('http://localhost:4000/map', {
+			fetch('https://retro-game-maker.herokuapp.com/map', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',

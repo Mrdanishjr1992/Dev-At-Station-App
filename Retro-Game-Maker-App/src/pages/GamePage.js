@@ -24,21 +24,21 @@ export default function GamePage() {
 
 	useEffect(() => {
 		if (slug.id)
-			fetch(`http://localhost:4000/map/${slug.id}/all`)
+			fetch(`https://retro-game-maker.herokuapp.com/map/${slug.id}/all`)
 				.then((res) => res.json())
 				.then((data) => setMaps(data));
 	}, [slug, mapId]);
 
 	useEffect(() => {
 		if (mapId)
-			fetch(`http://localhost:4000/map/${mapId}/show`)
+			fetch(`https://retro-game-maker.herokuapp.com/map/${mapId}/show`)
 				.then((res) => res.json())
 				.then((data) => setMapObj(data));
 		if (!mapId) setMapObj(starterMap);
 	}, [mapId]);
 
 	function deleteMap() {
-		fetch(`http://localhost:4000/map/${mapId}`, {
+		fetch(`https://retro-game-maker.herokuapp.com/map/${mapId}`, {
 			method: 'DELETE',
 			headers: {
 				'Content-Type': 'application/json',

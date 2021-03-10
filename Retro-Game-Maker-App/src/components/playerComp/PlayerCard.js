@@ -9,13 +9,16 @@ export default function PlayerCard({
 	setEditPlayer,
 }) {
 	async function handleDelete(playerId) {
-		await fetch(`http://localhost:4000/player/${playerId}/delete`, {
-			method: 'DELETE',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(token),
-		})
+		await fetch(
+			`https://retro-game-maker.herokuapp.com/player/${playerId}/delete`,
+			{
+				method: 'DELETE',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(token),
+			}
+		)
 			.then((res) => {
 				res.json();
 			})

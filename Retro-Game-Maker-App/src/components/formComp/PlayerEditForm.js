@@ -16,13 +16,16 @@ export default function PlayerEditForm({ user, editPlayer, setEditPlayer }) {
 			token,
 			userId: user._id,
 		};
-		await fetch(`http://localhost:4000/player/${editPlayer._id}`, {
-			method: 'PUT',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(playerObj),
-		})
+		await fetch(
+			`https://retro-game-maker.herokuapp.com/player/${editPlayer._id}`,
+			{
+				method: 'PUT',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(playerObj),
+			}
+		)
 			.then((res) => {
 				res.json();
 			})

@@ -18,7 +18,7 @@ export default function LoadingPage() {
 			token: localStorage.getItem('token'),
 		};
 		if (tokenObj.token) {
-			fetch('http://localhost:4000/user/profile', {
+			fetch('https://retro-game-maker.herokuapp.com/user/profile', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
@@ -33,7 +33,7 @@ export default function LoadingPage() {
 				.then((data) => {
 					console.log('user', data);
 					setUser(data.profile);
-					fetch(`http://localhost:4000/player/${data.profile._id}`)
+					fetch(`https://retro-game-maker.herokuapp.com/player/${data.profile._id}`)
 						.then((res) => {
 							return res.json();
 						})

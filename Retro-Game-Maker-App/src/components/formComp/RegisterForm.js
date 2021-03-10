@@ -19,7 +19,7 @@ export default function RegisterForm({ setWelcome, welcome }) {
 
 		const userObj = { username, password, confirm };
 
-		fetch('http://localhost:4000/user', {
+		fetch('https://retro-game-maker.herokuapp.com/user', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
