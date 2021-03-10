@@ -4,9 +4,9 @@
 
 > Frontend React application for Dev-At-Station-Game
 
-![INSERT YOUR GRAPHIC HERE](https://imgur.com/a/aUPrggZ)
+![INSERT YOUR GRAPHIC HERE](https://imgur.com/CAn3GK6)
 
-![INSERT YOUR GRAPHIC HERE](https://imgur.com/a/kK9iRxP)
+![INSERT YOUR GRAPHIC HERE](https://imgur.com/IyG6Eui)
 
 ## Table of Contents (Optional)
 
