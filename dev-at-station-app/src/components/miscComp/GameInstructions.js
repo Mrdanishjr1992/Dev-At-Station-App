@@ -1,6 +1,6 @@
 export default function GameInstructions() {
 	return (
-		<div className="flex flex-col text-white w-1/2 mx-auto">
+		<div className="flex flex-col text-yellow-400 w-1/3 mx-auto">
 			<h1 className="text-2xl underline text-center">Instructions</h1>
 			<p>1. Create a map, by clicking button on top right corner. (max 3)</p>
 			<p>

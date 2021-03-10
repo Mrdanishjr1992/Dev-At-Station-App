@@ -101,10 +101,9 @@ export default function LoadingPage() {
 						/>
 					) : (
 						<>
-							<div className="border-3 flex-1 border-black p-2 landing-form">
+							<div className="px-auto border-3 flex-1 flex flex-col justify-evenly items-center  border-black p-2 landing-form">
 								<div
 									style={{
-										margin: 'auto',
 										background: `url('../images/characters/char1.png')`,
 										width: 128,
 										height: 128,
@@ -114,7 +113,6 @@ export default function LoadingPage() {
 								/>
 								<div
 									style={{
-										margin: 'auto',
 										background: `url('../images/characters/char3.png')`,
 										width: 128,
 										height: 128,
@@ -124,7 +122,6 @@ export default function LoadingPage() {
 								/>
 								<div
 									style={{
-										margin: 'auto',
 										background: `url('../images/characters/char4.png')`,
 										width: 128,
 										height: 128,

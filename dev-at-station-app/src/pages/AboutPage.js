@@ -37,14 +37,14 @@ export default function AboutPage() {
 				)}
 			</div>
 			<div className="h-full d-flex flex-column align-items-center align-content-center ">
-				<p className="p-2 text-2xl text-center">
+				<p className="p-2 text-2xl text-center text-yellow-400">
 					Hello, People of the Interweb. I'm Mohamed A. Danish, a software
 					developer who is passionate in all things Science/Tech. I had a lot of
 					fun making this application the takes the user back to the old'n days
 					where Retro was the "Buzz" or "Fizz" , as they called it. Hopefully I
 					can keep working on this lovely Project and make more features.
 				</p>
-				<p className="p-2 text-2xl text-center">Thank you.</p>
+				<p className="p-2 text-4xl text-center text-red-500">Thank you.</p>
 
 				<div className="flex">
 					<div

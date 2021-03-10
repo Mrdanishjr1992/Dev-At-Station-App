@@ -55,11 +55,11 @@ export default function LandingPage() {
 				</div>
 			</div>
 			<div className="absolute bottom-2 w-full">
-				<h2 className="text-white text-4xl text-center py-8">
+				<h2 className="text-4xl text-center text-yellow-400 py-8">
 					Experience Retro Game-Making...!
 				</h2>
 				<DevMode />
-				<h2 className="text-white text-2xl text-center py-10">
+				<h2 className="text-yellow-400 text-2xl text-center py-10">
 					More Features Coming Soon.
 				</h2>
 			</div>

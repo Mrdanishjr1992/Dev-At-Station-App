@@ -6,10 +6,16 @@ import GameInstructions from '../components/miscComp/GameInstructions';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import starterMap from '../components/miscComp/starterMap';
+import GamePageNav from '../components/navbars/GamePageNav';
 
 export default function GamePage() {
 	const slug = useParams();
-	const skins = ['char1', 'char2', 'char3', 'char4'];
+	const skins = [
+		{ value: 'char1', name: 'Sennad' },
+		{ value: 'char2', name: 'Danish' },
+		{ value: 'char3', name: 'WhoButJG' },
+		{ value: 'char4', name: 'Ibrahim' },
+	];
 	const [skin, setSkin] = useState('char3');
 	const [mapObj, setMapObj] = useState(null);
 	const [mapId, setMapId] = useState('');
@@ -46,61 +52,17 @@ export default function GamePage() {
 	}
 	return (
 		<div className="flex flex-col ">
-			<div className="flex w-full justify-between align-items-center  p-2 mb-4">
-				{token ? (
-					<>
-						<div className="m-3">
-							<a
-								href="/loading"
-								className="btn bg-yellow-400 font-bold border-black border-1 text-red-800 rounded-xl shadow-lg"
-							>
-								Back
-							</a>
-						</div>
-						<h1 className="logo text-red-500 font-bold text-6xl text-center mt-4">
-							Retro-Game-Maker
-						</h1>
-						<div className="m-3">
-							<a
-								href={`/createmap/${slug.id}`}
-								className="btn bg-red-800 font-bold border-black border-1 text-yellow-400 rounded-xl shadow-lg"
-							>
-								MapPage
-							</a>
-						</div>
-					</>
-				) : (
-					<>
-						<div className="m-3">
-							<a
-								href="/about"
-								className="btn bg-green-800 font-bold border-black border-1  text-yellow-400 rounded-xl shadow-lg"
-							>
-								about
-							</a>
-						</div>
-						<h1 className="logo text-red-500 font-bold text-6xl text-center mt-4">
-							Retro-Game-Maker
-						</h1>
-						<div className="m-3">
-							<a
-								href="/"
-								onClick={() => logout()}
-								className="btn bg-red-800 font-bold border-black border-1 text-yellow-400 rounded-xl shadow-lg"
-							>
-								back
-							</a>
-						</div>
-					</>
-				)}
-			</div>
+			<GamePageNav logout={logout} token={token} />
 			<div className="h-full flex w-full justify-between  mb-1 p-2 ">
 				{token && (
 					<>
 						<div className="w-2/6 h-full m-3">
 							<Dropdown
 								options={skins.map((option) => {
-									return { value: option, label: 'Character : ' + option };
+									return {
+										value: option.value,
+										label: option.name,
+									};
 								})}
 								onChange={(option) => setSkin(option.value)}
 								placeholder={'Select a Character!'}
@@ -124,8 +86,8 @@ export default function GamePage() {
 								>
 									delete
 								</button>
-								<p className="text-white text-lg">
-									Delete Current Map (On View Port)
+								<p className="text-white text-md">
+									Delete Current Map ( On View Port )
 								</p>
 							</div>
 						</div>
@@ -140,38 +102,6 @@ export default function GamePage() {
 				<Player skin={skin} />
 			</div>
 			<GameInstructions />
-			<div className="flex mx-auto">
-				<div
-					className="m-24"
-					style={{
-						background: `url('../images/characters/char1.png')`,
-						width: 128,
-						height: 128,
-						backgroundSize: '384px 512px',
-						imageRendering: 'crisp-edges',
-					}}
-				/>
-				<div
-					className="m-24"
-					style={{
-						background: `url('../images/characters/char3.png')`,
-						width: 128,
-						height: 128,
-						backgroundSize: '384px 512px',
-						imageRendering: 'crisp-edges',
-					}}
-				/>
-				<div
-					className="m-24"
-					style={{
-						background: `url('../images/characters/char4.png')`,
-						width: 128,
-						height: 128,
-						backgroundSize: '384px 512px',
-						imageRendering: 'crisp-edges',
-					}}
-				/>
-			</div>
 		</div>
 	);
 }
