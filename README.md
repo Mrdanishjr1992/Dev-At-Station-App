@@ -4,7 +4,10 @@
 
 > Frontend React application for Dev-At-Station-Game
 
+**_INSERT GRAPHIC HERE (include hyperlink in image)_**
 [![INSERT YOUR GRAPHIC HERE](https://imgur.com/a/aUPrggZ)]()
+
+**_INSERT ANOTHER GRAPHIC HERE_**
 [![INSERT YOUR GRAPHIC HERE](https://imgur.com/a/kK9iRxP)]()
 
 ## Table of Contents (Optional)
