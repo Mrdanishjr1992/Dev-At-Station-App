@@ -4,9 +4,11 @@
 
 > Frontend React application for Dev-At-Station-Game
 
-![INSERT YOUR GRAPHIC HERE](https://imgur.com/CAn3GK6)
+![INSERT YOUR GRAPHIC HERE](https://github.com/Mrdanishjr1992/Dev-At-Station-App/blob/main/dev-at-station-app/public/images/misc/img-3.png)
 
-![INSERT YOUR GRAPHIC HERE](https://imgur.com/IyG6Eui)
+![INSERT YOUR GRAPHIC HERE](https://github.com/Mrdanishjr1992/Dev-At-Station-App/blob/main/dev-at-station-app/public/images/misc/img-2.png)
+
+![INSERT YOUR GRAPHIC HERE](https://github.com/Mrdanishjr1992/Dev-At-Station-App/blob/main/dev-at-station-app/public/images/misc/img-1.png)
 
 ## Table of Contents (Optional)
 
