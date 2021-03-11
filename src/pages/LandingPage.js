@@ -29,13 +29,13 @@ export default function LandingPage() {
 				<div className="Container cfb  h-full">
 					<div className={setBannerClass()}>
 						{welcome ? (
-							<h2 className="text-2xl">Hello, New Friend!</h2>
+							<h2 className="text-xl">Hello, New Friend!</h2>
 						) : (
-							<h2 className="text-2xl">Welcome Back</h2>
+							<h2 className="text-xl">Welcome Back</h2>
 						)}
 
 						<button
-							className="btn btn-outline-primary mt-5"
+							className="btn btn-primary mt-5"
 							onClick={() => setWelcome(!welcome)}
 						>
 							{welcome ? 'Sign In' : 'Create Account'}
@@ -54,7 +54,7 @@ export default function LandingPage() {
 					</div>
 				</div>
 			</div>
-			<div className="absolute bottom-2 w-full">
+			<div id="demo-container" className="absolute bottom-2 w-full">
 				<h2 className="text-4xl text-center text-yellow-400 py-8">
 					Experience Retro Game-Making...!
 				</h2>

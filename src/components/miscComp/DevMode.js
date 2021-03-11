@@ -6,10 +6,10 @@ export default function DevMode() {
 			<div className="border-box">
 				<a
 					href="/game"
-					className="btn  btn-danger rounded-full shadow-2xl border-white border-1 "
+					className="btn  btn-danger rounded-full border-white border-1 "
 				>
 					<div
-						className="m-12 bg-transparent"
+						className="bg-transparent"
 						style={{
 							background: `url('../images/characters/char4.png')`,
 							width: 128,
@@ -20,16 +20,16 @@ export default function DevMode() {
 					/>
 				</a>
 				<p>
-					Try ( <span className="text-red-500">Game</span> )
+					Demo ( <span className="text-red-500">Game</span> )
 				</p>
 			</div>
 			<div className="border-box">
 				<a
 					href="/createmap"
-					className="btn text-2xl btn-success rounded-full shadow-2xl border-white border-1 "
+					className="btn text-2xl btn-success rounded-full border-white border-1 "
 				>
 					<div
-						className="m-12 bg-transparent"
+						className="m-auto bg-transparent"
 						style={{
 							background: `url('../images/characters/char3.png')`,
 							width: 128,
@@ -40,16 +40,16 @@ export default function DevMode() {
 					/>
 				</a>
 				<p>
-					Try ( <span className="text-green-500">Create Map</span> )
+					Demo ( <span className="text-green-500">Create Map</span> )
 				</p>
 			</div>
 			<div className="border-box">
 				<a
 					href="/about"
-					className="btn text-2xl btn-primary rounded-full shadow-2xl border-white border-1 "
+					className="btn text-2xl btn-primary rounded-full border-white border-1 "
 				>
 					<div
-						className="bg-red-400 m-12 bg-transparent"
+						className="m-auto bg-transparent"
 						style={{
 							background: `url('../images/characters/char1.png')`,
 							width: 128,
@@ -60,7 +60,7 @@ export default function DevMode() {
 					/>
 				</a>
 				<p>
-					(<span className="text-blue-500"> About </span>) Me
+					(<span className="text-blue-500"> About </span>)
 				</p>
 			</div>
 		</div>
