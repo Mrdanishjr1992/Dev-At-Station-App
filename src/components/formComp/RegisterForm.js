@@ -90,7 +90,10 @@ export default function RegisterForm({ setWelcome, welcome }) {
 					/>
 				</div>
 				<div className="my-1 mx-auto">
-					<button className="btn btn-outline-primary" type="submit">
+					<button
+						className="btn hover:bg-blue-600  border-white text-white border"
+						type="submit"
+					>
 						Register
 					</button>
 				</div>

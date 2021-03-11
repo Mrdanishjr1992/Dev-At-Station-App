@@ -75,7 +75,10 @@ export default function LoginForm() {
 					/>
 				</div>
 				<div className="my-1 mx-auto">
-					<button className="btn btn-outline-primary" type="submit">
+					<button
+						className="btn hover:bg-blue-500  border-white text-white border"
+						type="submit"
+					>
 						Login
 					</button>
 				</div>
